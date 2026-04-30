@@ -68,11 +68,10 @@
       font-weight: 500;
       letter-spacing: 0.26em;
       text-transform: uppercase;
-      color: var(--white);
+      color: var(--title);
       text-decoration: none;
       transition: color 0.3s;
     }
-    nav.scrolled .nav-logo { color: var(--title); }
 
     .nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
 
@@ -81,24 +80,22 @@
       font-weight: 400;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.55);
+      color: var(--muted);
       text-decoration: none;
       transition: color 0.25s;
     }
-    .nav-links a:hover { color: var(--white); }
-    nav.scrolled .nav-links a { color: var(--muted); }
-    nav.scrolled .nav-links a:hover { color: var(--title); }
+    .nav-links a:hover { color: var(--title); }
 
     .nav-cta {
-      border: 1px solid rgba(255,255,255,0.4) !important;
+      border: 1px solid var(--title) !important;
       padding: 0.45rem 1.25rem !important;
-      color: var(--white) !important;
+      color: var(--title) !important;
       transition: all 0.25s !important;
     }
     .nav-cta:hover {
-      background: var(--white) !important;
-      border-color: var(--white) !important;
-      color: var(--title) !important;
+      background: var(--title) !important;
+      border-color: var(--title) !important;
+      color: var(--white) !important;
     }
     nav.scrolled .nav-cta {
       border-color: var(--title) !important;
@@ -126,18 +123,6 @@
       position: absolute;
       inset: 0;
       background: var(--cream);
-    }
-
-    .hero-img::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        to top,
-        rgba(20,10,8,0.72) 0%,
-        rgba(20,10,8,0.2) 45%,
-        transparent 70%
-      );
     }
 
     .hero-img::before {
@@ -180,7 +165,7 @@
       font-size: clamp(3rem, 7vw, 6.5rem);
       font-weight: 400;
       line-height: 1.02;
-      color: var(--white);
+      color: var(--title);
       letter-spacing: -0.02em;
       animation: fadeUp 1s ease 0.5s both;
     }
@@ -201,20 +186,20 @@
       font-size: 0.92rem;
       font-weight: 400;
       font-style: italic;
-      color: rgba(255,255,255,0.6);
+      color: var(--muted);
       line-height: 1.95;
       margin-bottom: 3rem;
       padding-left: 1.5rem;
-      border-left: 1px solid rgba(255,255,255,0.25);
+      border-left: 1px solid var(--line);
     }
 
     .hero-actions { display: flex; gap: 1.25rem; align-items: center; }
 
     .btn-primary {
       background: transparent;
-      color: var(--white);
+      color: var(--title);
       padding: 0.85rem 2.25rem;
-      border: 1px solid rgba(255,255,255,0.6);
+      border: 1px solid var(--title);
       font-family: var(--sans);
       font-size: 0.62rem;
       font-weight: 500;
@@ -230,9 +215,9 @@
       cursor: pointer;
     }
     .btn-primary:hover {
-      background: var(--white);
-      border-color: var(--white);
-      color: var(--title);
+      background: var(--title);
+      border-color: var(--title);
+      color: var(--white);
     }
     .btn-primary .arrow { transition: transform 0.25s; }
     .btn-primary:hover .arrow { transform: translateX(4px); }
@@ -252,11 +237,11 @@
       font-weight: 400;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.45);
+      color: var(--muted);
       text-decoration: none;
       transition: color 0.25s;
     }
-    .btn-ghost:hover { color: var(--white); }
+    .btn-ghost:hover { color: var(--title); }
 
     .hero-scroll {
       position: absolute;
@@ -267,7 +252,7 @@
       flex-direction: column;
       align-items: center;
       gap: 0.6rem;
-      color: rgba(255,255,255,0.25);
+      color: var(--muted);
       font-size: 0.55rem;
       letter-spacing: 0.24em;
       text-transform: uppercase;
@@ -277,7 +262,7 @@
     .scroll-line {
       width: 1px;
       height: 50px;
-      background: linear-gradient(to bottom, rgba(255,255,255,0.4), transparent);
+      background: linear-gradient(to bottom, var(--line), transparent);
       animation: scrollDrop 2.5s ease-in-out infinite;
     }
     @keyframes scrollDrop {
