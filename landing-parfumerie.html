@@ -15,12 +15,12 @@
 
     :root {
       --white:  #FFFFFF;
-      --warm:   #FAF8F5;
+      --warm:   #F5F5F1;
       --cream:  #F2EDE5;
       --line:   #E5DED5;
-      --muted:  #9E958A;
-      --body:   #3D3530;
-      --title:  #1A1210;
+      --muted:  #6B6B6B;
+      --body:   #000000;
+      --title:  #000000;
       --serif: Georgia, 'Times New Roman', serif;
       --sans:  'Inter', system-ui, sans-serif;
     }
@@ -48,12 +48,11 @@
       position: fixed;
       top: 0; left: 0; right: 0;
       z-index: 200;
-      background: rgba(255,255,255,0.97);
-      border-bottom: 1px solid transparent;
-      transition: border-color 0.4s, padding 0.4s, backdrop-filter 0.4s;
+      background: #F5F5F1;
+      border-bottom: 1px solid var(--line);
+      transition: border-color 0.4s, backdrop-filter 0.4s;
     }
     .site-header.scrolled {
-      border-bottom-color: var(--line);
       backdrop-filter: blur(12px);
     }
 
@@ -65,11 +64,12 @@
     }
 
     .header-logo {
+      font-family: var(--sans);
       font-size: 0.68rem;
       font-weight: 500;
       letter-spacing: 0.26em;
       text-transform: uppercase;
-      color: var(--title);
+      color: #000000;
       text-decoration: none;
       transition: color 0.25s;
     }
@@ -88,15 +88,16 @@
     }
 
     .header-utils a {
+      font-family: var(--sans);
       font-size: 0.65rem;
-      font-weight: 400;
+      font-weight: 500;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: var(--muted);
+      color: #000000;
       text-decoration: none;
       transition: color 0.25s;
     }
-    .header-utils a:hover { color: var(--title); }
+    .header-utils a:hover { color: var(--muted); }
 
     .header-utils .header-cta {
       border: 1px solid var(--title);
@@ -135,7 +136,7 @@
       line-height: 1;
       white-space: nowrap;
       overflow: hidden;
-      color: var(--title);
+      color: #000000;
     }
     .editorial-text a {
       color: inherit;
