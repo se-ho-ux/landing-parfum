@@ -114,9 +114,11 @@
     .header-editorial {
       padding: 0.4rem 5rem 0.9rem;
       border-top: 1px solid var(--line);
+      background: transparent;
       overflow: hidden;
       max-height: 80px;
       opacity: 1;
+      text-align: center;
       transition:
         max-height 0.48s cubic-bezier(0.4, 0, 0.2, 1),
         opacity    0.32s ease,
@@ -145,7 +147,7 @@
       transition: color 0.2s;
     }
     .editorial-text a:hover { color: var(--muted); }
-    .editorial-text .sep { opacity: 0.3; margin: 0 0.3em; }
+    .editorial-text .sep { opacity: 1; margin: 0 0.3em; color: #000000; }
     .editorial-text .sep { opacity: 0.25; margin: 0 0.05em; }
 
     /* ── hamburger ── */
