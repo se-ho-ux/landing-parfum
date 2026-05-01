@@ -93,17 +93,17 @@
       transition: all 0.25s !important;
     }
     .nav-cta:hover {
-      background: var(--title) !important;
+      background: var(--cream) !important;
       border-color: var(--title) !important;
-      color: var(--white) !important;
+      color: var(--title) !important;
     }
     nav.scrolled .nav-cta {
       border-color: var(--title) !important;
       color: var(--title) !important;
     }
     nav.scrolled .nav-cta:hover {
-      background: var(--title) !important;
-      color: var(--white) !important;
+      background: var(--cream) !important;
+      color: var(--title) !important;
     }
 
     /* ─────────────────────────────────────────
@@ -215,9 +215,9 @@
       cursor: pointer;
     }
     .btn-primary:hover {
-      background: var(--title);
+      background: var(--cream);
       border-color: var(--title);
-      color: var(--white);
+      color: var(--title);
     }
     .btn-primary .arrow { transition: transform 0.25s; }
     .btn-primary:hover .arrow { transform: translateX(4px); }
@@ -885,8 +885,8 @@
     .contact-actions { display: flex; gap: 1rem; margin-bottom: 4.5rem; flex-wrap: wrap; }
 
     .btn-dark {
-      background: var(--title);
-      color: var(--white);
+      background: transparent;
+      color: var(--title);
       padding: 0.85rem 2.25rem;
       border: 1px solid var(--title);
       font-family: var(--sans);
@@ -898,12 +898,12 @@
       display: inline-flex;
       align-items: center;
       gap: 0.7rem;
-      transition: background 0.25s, border-color 0.25s;
+      transition: background 0.25s, color 0.25s;
       cursor: pointer;
       position: relative;
       overflow: hidden;
     }
-    .btn-dark:hover { background: var(--body); border-color: var(--body); }
+    .btn-dark:hover { background: var(--cream); color: var(--title); border-color: var(--title); }
     .btn-dark .arrow { transition: transform 0.25s; }
     .btn-dark:hover .arrow { transform: translateX(4px); }
 
