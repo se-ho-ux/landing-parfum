@@ -130,13 +130,14 @@
     }
 
     .editorial-text {
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: clamp(1.8rem, 3vw, 3rem);
-      font-weight: 300;
+      font-family: var(--sans);
+      font-size: clamp(1.1rem, 1.8vw, 1.6rem);
+      font-weight: 500;
       line-height: 1;
       white-space: nowrap;
       overflow: hidden;
       color: #000000;
+      letter-spacing: 0.01em;
     }
     .editorial-text a {
       color: inherit;
@@ -144,6 +145,7 @@
       transition: color 0.2s;
     }
     .editorial-text a:hover { color: var(--muted); }
+    .editorial-text .sep { opacity: 0.3; margin: 0 0.3em; }
     .editorial-text .sep { opacity: 0.25; margin: 0 0.05em; }
 
     /* ── hamburger ── */
