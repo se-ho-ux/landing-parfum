@@ -59,10 +59,10 @@
     }
 
     .header-strip {
-      padding: 1.1rem 5rem;
+      padding: 1.5rem 5rem;
       display: flex;
       justify-content: flex-start;
-      align-items: center;
+      align-items: stretch;
       gap: 0.75rem;
     }
 
@@ -86,7 +86,10 @@
     }
 
     .header-utils {
-      display: contents;
+      display: flex;
+      align-items: stretch;
+      gap: 0.75rem;
+      margin-left: auto;
     }
 
     .header-location { display: none; }
@@ -112,53 +115,50 @@
     }
     .site-header.scrolled .header-utils .header-cta:hover { background: var(--cream); }
 
-    /* ── nav éditoriale ── */
-    .header-editorial {
-      padding: 0.4rem 5rem 0.9rem;
-      border-top: 1px solid rgba(255,252,243,0.15);
-      background: transparent;
-      overflow: visible;
-      max-height: 120px;
-      opacity: 1;
-      text-align: center;
-      transition:
-        background 0.5s ease,
-        border-color 0.5s ease,
-        max-height 0.48s cubic-bezier(0.4, 0, 0.2, 1),
-        opacity    0.32s ease,
-        padding    0.4s ease;
-    }
-    .site-header.scrolled .header-editorial {
-      background: #FFFFFF;
-      border-top-color: var(--line);
-    }
-    .header-editorial.collapsed {
-      max-height: 0;
-      opacity: 0;
-      padding-top: 0;
-      padding-bottom: 0;
+    /* ── colonnes nav ── */
+    .header-cols {
+      display: flex;
+      gap: 0;
+      flex: 1;
+      align-items: stretch;
     }
 
-    .editorial-text {
-      font-family: var(--sans);
-      font-size: 38px;
-      font-weight: 500;
-      line-height: 1.4;
-      white-space: nowrap;
-      overflow: visible;
-      color: #FFFCF3;
-      letter-spacing: 0.01em;
-      word-spacing: -0.28em;
-      transition: color 0.5s ease;
+    .header-col {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 0.5rem 2rem;
+      background: transparent;
+      border-left: 1px solid rgba(255,252,243,0.18);
+      transition: border-color 0.5s ease;
+      min-width: 160px;
     }
-    .site-header.scrolled .editorial-text { color: #000000; }
-    .editorial-text a {
-      color: inherit;
+    .site-header.scrolled .header-col { border-left-color: var(--line); }
+
+    .header-col a {
+      font-family: 'Plus Jakarta Sans', var(--sans);
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      color: rgba(255,252,243,0.85);
       text-decoration: none;
-      transition: color 0.2s;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.5rem;
+      transition: color 0.25s ease;
+      white-space: nowrap;
     }
-    .editorial-text a:hover { color: #C4C4AB; }
-    .editorial-text .sep { opacity: 1; margin: 0; }
+    .header-col a:hover { color: #FFFCF3; }
+    .site-header.scrolled .header-col a { color: #000000; }
+    .site-header.scrolled .header-col a:hover { color: #C4C4AB; }
+
+    .nav-arrow {
+      font-size: 0.75rem;
+      opacity: 0.6;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .header-col a:hover .nav-arrow { opacity: 1; transform: translate(2px, -2px); }
 
     /* ── hamburger ── */
     .hamburger {
@@ -1153,8 +1153,9 @@
     ───────────────────────────────────────── */
     @media (max-width: 1100px) {
       .header-strip { padding: 1rem 2rem; }
-      .header-utils a:not(.header-cta), .header-location { display: none; }
-      .header-editorial { display: none; }
+      .header-location { display: none; }
+      .header-cols { display: none; }
+      .header-utils a:not(.header-cta) { display: none; }
       .hamburger { display: flex; }
       section { padding: 6rem 2.5rem; }
       .hero { padding: 0 2.5rem 5rem; }
@@ -1198,8 +1199,19 @@
 <header id="site-header" class="site-header">
   <div class="header-strip">
     <a href="#hero" class="header-logo">L'art du service</a>
+    <nav class="header-cols" id="header-editorial" aria-label="Navigation principale">
+      <div class="header-col">
+        <a href="#about">Profil <span class="nav-arrow">↗</span></a>
+        <a href="#services">Expertise <span class="nav-arrow">↗</span></a>
+        <a href="#process">Processus <span class="nav-arrow">↗</span></a>
+      </div>
+      <div class="header-col">
+        <a href="#testimonials">Témoignages <span class="nav-arrow">↗</span></a>
+        <a href="#brands">Maisons <span class="nav-arrow">↗</span></a>
+        <a href="#contact">Contact <span class="nav-arrow">↗</span></a>
+      </div>
+    </nav>
     <div class="header-utils">
-      <span class="header-location">Paris</span>
       <a href="#contact" class="header-cta">Contact</a>
       <button class="hamburger" id="hamburger" aria-label="Ouvrir le menu" aria-expanded="false">
         <span class="ham-line"></span>
@@ -1208,16 +1220,6 @@
       </button>
     </div>
   </div>
-  <nav class="header-editorial" id="header-editorial" aria-label="Navigation principale">
-    <p class="editorial-text">
-      <a href="#about">Profil</a><span class="sep">,</span>
-      <a href="#services">Expertise</a><span class="sep">,</span>
-      <a href="#process">Processus</a><span class="sep">,</span>
-      <a href="#testimonials">Témoignages</a><span class="sep">,</span>
-      <a href="#brands">Maisons</a><span class="sep">,</span>
-      <a href="#contact">Contact</a>
-    </p>
-  </nav>
 </header>
 
 <!-- MENU MOBILE -->
@@ -1630,21 +1632,12 @@
 
 <script>
   const siteHeader  = document.getElementById('site-header');
-  const editorial   = document.getElementById('header-editorial');
   const hamburger   = document.getElementById('hamburger');
   const mobileMenu  = document.getElementById('mobile-menu');
 
-  /* ── scrolled + collapse nav éditoriale ── */
-  let lastY = 0, isCollapsed = false;
+  /* ── scrolled ── */
   window.addEventListener('scroll', () => {
-    const y = window.scrollY;
-    siteHeader.classList.toggle('scrolled', y > 40);
-    const shouldCollapse = y > 80 && y > lastY;
-    if (shouldCollapse !== isCollapsed) {
-      editorial.classList.toggle('collapsed', shouldCollapse);
-      isCollapsed = shouldCollapse;
-    }
-    lastY = y;
+    siteHeader.classList.toggle('scrolled', window.scrollY > 40);
   }, { passive: true });
 
   /* ── hamburger / menu mobile ── */
