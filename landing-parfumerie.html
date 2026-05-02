@@ -61,8 +61,9 @@
     .header-strip {
       padding: 1.1rem 5rem;
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-start;
       align-items: center;
+      gap: 0.75rem;
     }
 
     .header-logo {
@@ -74,31 +75,21 @@
       color: #000000;
       text-decoration: none;
       background: #FFFCF3;
-      border: 1px solid rgba(0,0,0,0.12);
-      padding: 0.45rem 1rem;
-      transition: background 0.5s ease, color 0.5s ease, border-color 0.5s ease;
+      border: none;
+      padding: 0.65rem 1.5rem;
+      transition: background 0.5s ease, color 0.5s ease;
     }
     .header-logo:hover { background: #F2EDE5; }
     .site-header.scrolled .header-logo {
       background: transparent;
-      border-color: transparent;
       color: #000000;
     }
 
     .header-utils {
-      display: flex;
-      gap: 1.25rem;
-      align-items: center;
+      display: contents;
     }
 
-    .header-location {
-      font-size: 0.62rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: rgba(255,252,243,0.7);
-      transition: color 0.5s ease;
-    }
-    .site-header.scrolled .header-location { color: #000000; }
+    .header-location { display: none; }
 
     .header-utils .header-cta {
       font-family: var(--sans);
@@ -109,9 +100,9 @@
       color: #000000;
       text-decoration: none;
       background: #FFFCF3;
-      border: 1px solid rgba(0,0,0,0.12);
-      padding: 0.45rem 1rem;
-      transition: background 0.5s ease, color 0.5s ease, border-color 0.5s ease;
+      border: none;
+      padding: 0.65rem 1.5rem;
+      transition: background 0.5s ease, color 0.5s ease;
     }
     .header-utils .header-cta:hover { background: #F2EDE5; }
     .site-header.scrolled .header-utils .header-cta {
