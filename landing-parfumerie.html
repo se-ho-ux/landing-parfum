@@ -260,8 +260,8 @@
       min-height: 700px;
       position: relative;
       display: flex;
-      align-items: flex-end;
-      padding: 0 5rem 7rem;
+      align-items: center;
+      padding: 8rem 5rem 0;
       overflow: hidden;
     }
 
@@ -330,6 +330,7 @@
       line-height: 62px;
       color: #FFFCF3;
       letter-spacing: -0.01em;
+      white-space: nowrap;
       animation: fadeUp 1s ease 0.5s both;
     }
 
@@ -1170,7 +1171,7 @@
       .header-utils a:not(.header-cta) { display: none; }
       .hamburger { display: flex; }
       section { padding: 6rem 2.5rem; }
-      .hero { padding: 0 2.5rem 5rem; }
+      .hero { padding: 6rem 2.5rem 0; }
       .hero-content, .about-grid, .stakes-head, .services-head,
       .process-head, .brands-head, .contact-grid, .editorial-grid { grid-template-columns: 1fr; gap: 4rem; }
       .about-badge { right: 0; }
@@ -1192,7 +1193,7 @@
 
     @media (max-width: 700px) {
       section { padding: 4.5rem 1.5rem; }
-      .hero { padding: 0 1.5rem 4rem; }
+      .hero { padding: 5rem 1.5rem 0; white-space: normal; }
       .stakes-grid { grid-template-columns: 1fr; }
       .stake { border-right: none; }
       .stake:nth-child(3) { border-bottom: 1px solid var(--line); }
@@ -1262,9 +1263,7 @@
   <div class="hero-content">
     <div class="hero-left">
       <span class="hero-eyebrow">Experte · Parfumerie de Niche · Paris</span>
-      <h1 class="hero-title">
-        L'Art du<br><em>Service Client</em>
-      </h1>
+      <h1 class="hero-title">L'Art du Service Client</h1>
     </div>
     <div class="hero-right">
       <p class="hero-quote">
