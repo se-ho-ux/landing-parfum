@@ -48,11 +48,13 @@
       position: fixed;
       top: 0; left: 0; right: 0;
       z-index: 200;
-      background: #F5F5F1;
-      border-bottom: 1px solid var(--line);
-      transition: border-color 0.4s, backdrop-filter 0.4s;
+      background: transparent;
+      border-bottom: 1px solid transparent;
+      transition: background 0.5s ease, border-color 0.5s ease;
     }
     .site-header.scrolled {
+      background: #F5F5F1;
+      border-bottom-color: var(--line);
       backdrop-filter: blur(12px);
     }
 
@@ -69,10 +71,11 @@
       font-weight: 500;
       letter-spacing: 0.26em;
       text-transform: uppercase;
-      color: #000000;
+      color: #FFFFFF;
       text-decoration: none;
-      transition: color 0.25s;
+      transition: color 0.5s ease;
     }
+    .site-header.scrolled .header-logo { color: #000000; }
 
     .header-utils {
       display: flex;
@@ -84,8 +87,10 @@
       font-size: 0.65rem;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: var(--muted);
+      color: rgba(255,255,255,0.6);
+      transition: color 0.5s ease;
     }
+    .site-header.scrolled .header-location { color: #000000; }
 
     .header-utils a {
       font-family: var(--sans);
@@ -93,36 +98,43 @@
       font-weight: 500;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: #000000;
+      color: rgba(255,255,255,0.85);
       text-decoration: none;
-      transition: color 0.25s;
+      transition: color 0.5s ease;
     }
-    .header-utils a:hover { color: var(--muted); }
+    .header-utils a:hover { color: #FFFFFF; }
+    .site-header.scrolled .header-utils a { color: #000000; }
+    .site-header.scrolled .header-utils a:hover { color: var(--muted); }
 
     .header-utils .header-cta {
-      border: 1px solid var(--title);
+      border: 1px solid rgba(255,255,255,0.6);
       padding: 0.45rem 1.25rem;
-      color: var(--title);
-      transition: background 0.25s, color 0.25s;
+      color: rgba(255,255,255,0.85);
+      transition: background 0.25s, color 0.5s ease, border-color 0.5s ease;
     }
-    .header-utils .header-cta:hover {
-      background: var(--cream);
-      color: var(--title);
-    }
+    .header-utils .header-cta:hover { background: rgba(255,255,255,0.15); color: #FFFFFF; }
+    .site-header.scrolled .header-utils .header-cta { border-color: #000000; color: #000000; }
+    .site-header.scrolled .header-utils .header-cta:hover { background: var(--cream); }
 
     /* ── nav éditoriale ── */
     .header-editorial {
       padding: 0.4rem 5rem 0.9rem;
-      border-top: 1px solid var(--line);
-      background: #FFFFFF;
+      border-top: 1px solid rgba(255,255,255,0.15);
+      background: transparent;
       overflow: visible;
       max-height: 120px;
       opacity: 1;
       text-align: center;
       transition:
+        background 0.5s ease,
+        border-color 0.5s ease,
         max-height 0.48s cubic-bezier(0.4, 0, 0.2, 1),
         opacity    0.32s ease,
         padding    0.4s ease;
+    }
+    .site-header.scrolled .header-editorial {
+      background: #FFFFFF;
+      border-top-color: var(--line);
     }
     .header-editorial.collapsed {
       max-height: 0;
@@ -138,17 +150,19 @@
       line-height: 1.4;
       white-space: nowrap;
       overflow: visible;
-      color: #000000;
+      color: #FFFFFF;
       letter-spacing: 0.01em;
       word-spacing: -0.28em;
+      transition: color 0.5s ease;
     }
+    .site-header.scrolled .editorial-text { color: #000000; }
     .editorial-text a {
       color: inherit;
       text-decoration: none;
       transition: color 0.2s;
     }
     .editorial-text a:hover { color: #C4C4AB; }
-    .editorial-text .sep { opacity: 1; margin: 0; color: #000000; }
+    .editorial-text .sep { opacity: 1; margin: 0; }
 
     /* ── hamburger ── */
     .hamburger {
@@ -252,6 +266,20 @@
       z-index: 0;
     }
 
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to top,
+        rgba(0,0,0,0.55) 0%,
+        rgba(0,0,0,0.15) 50%,
+        transparent 100%
+      );
+      z-index: 1;
+      pointer-events: none;
+    }
+
     .hero-img::before {
       content: 'Votre visuel hero — flacon, lumière, matière';
       position: absolute;
@@ -267,7 +295,7 @@
 
     .hero-content {
       position: relative;
-      z-index: 2;
+      z-index: 3;
       width: 100%;
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -292,7 +320,7 @@
       font-size: clamp(3rem, 7vw, 6.5rem);
       font-weight: 400;
       line-height: 1.02;
-      color: var(--title);
+      color: #FFFFFF;
       letter-spacing: -0.02em;
       animation: fadeUp 1s ease 0.5s both;
     }
@@ -313,20 +341,20 @@
       font-size: 0.92rem;
       font-weight: 400;
       font-style: italic;
-      color: var(--muted);
+      color: rgba(255,255,255,0.75);
       line-height: 1.95;
       margin-bottom: 3rem;
       padding-left: 1.5rem;
-      border-left: 1px solid var(--line);
+      border-left: 1px solid rgba(255,255,255,0.3);
     }
 
     .hero-actions { display: flex; gap: 1.25rem; align-items: center; }
 
     .btn-primary {
       background: transparent;
-      color: var(--title);
+      color: #FFFFFF;
       padding: 0.85rem 2.25rem;
-      border: 1px solid var(--title);
+      border: 1px solid rgba(255,255,255,0.6);
       font-family: var(--sans);
       font-size: 0.62rem;
       font-weight: 500;
@@ -364,11 +392,11 @@
       font-weight: 400;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: var(--muted);
+      color: rgba(255,255,255,0.6);
       text-decoration: none;
       transition: color 0.25s;
     }
-    .btn-ghost:hover { color: var(--title); }
+    .btn-ghost:hover { color: #FFFFFF; }
 
     .hero-scroll {
       position: absolute;
