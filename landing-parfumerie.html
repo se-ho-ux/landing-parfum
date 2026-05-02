@@ -67,53 +67,58 @@
 
     .header-logo {
       font-family: var(--sans);
-      font-size: 0.68rem;
+      font-size: 0.62rem;
       font-weight: 500;
-      letter-spacing: 0.26em;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: #FFFCF3;
+      color: #000000;
       text-decoration: none;
-      transition: color 0.5s ease;
+      background: #FFFCF3;
+      border: 1px solid rgba(0,0,0,0.12);
+      padding: 0.45rem 1rem;
+      transition: background 0.5s ease, color 0.5s ease, border-color 0.5s ease;
     }
-    .site-header.scrolled .header-logo { color: #000000; }
+    .header-logo:hover { background: #F2EDE5; }
+    .site-header.scrolled .header-logo {
+      background: transparent;
+      border-color: transparent;
+      color: #000000;
+    }
 
     .header-utils {
       display: flex;
-      gap: 2.5rem;
+      gap: 1.25rem;
       align-items: center;
     }
 
     .header-location {
-      font-size: 0.65rem;
+      font-size: 0.62rem;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: rgba(255,252,243,0.6);
+      color: rgba(255,252,243,0.7);
       transition: color 0.5s ease;
     }
     .site-header.scrolled .header-location { color: #000000; }
 
-    .header-utils a {
-      font-family: var(--sans);
-      font-size: 0.65rem;
-      font-weight: 500;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: rgba(255,252,243,0.85);
-      text-decoration: none;
-      transition: color 0.5s ease;
-    }
-    .header-utils a:hover { color: #FFFCF3; }
-    .site-header.scrolled .header-utils a { color: #000000; }
-    .site-header.scrolled .header-utils a:hover { color: var(--muted); }
-
     .header-utils .header-cta {
-      border: 1px solid rgba(255,252,243,0.6);
-      padding: 0.45rem 1.25rem;
-      color: rgba(255,252,243,0.85);
-      transition: background 0.25s, color 0.5s ease, border-color 0.5s ease;
+      font-family: var(--sans);
+      font-size: 0.62rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #000000;
+      text-decoration: none;
+      background: #FFFCF3;
+      border: 1px solid rgba(0,0,0,0.12);
+      padding: 0.45rem 1rem;
+      transition: background 0.5s ease, color 0.5s ease, border-color 0.5s ease;
     }
-    .header-utils .header-cta:hover { background: rgba(255,252,243,0.15); color: #FFFCF3; }
-    .site-header.scrolled .header-utils .header-cta { border-color: #000000; color: #000000; }
+    .header-utils .header-cta:hover { background: #F2EDE5; }
+    .site-header.scrolled .header-utils .header-cta {
+      background: transparent;
+      border: 1px solid #000000;
+      color: #000000;
+    }
     .site-header.scrolled .header-utils .header-cta:hover { background: var(--cream); }
 
     /* ── nav éditoriale ── */
@@ -1204,7 +1209,7 @@
     <a href="#hero" class="header-logo">L'Art du Service</a>
     <div class="header-utils">
       <span class="header-location">Paris</span>
-      <a href="#contact" class="header-cta">Rendez-vous</a>
+      <a href="#contact" class="header-cta">Contact</a>
       <button class="hamburger" id="hamburger" aria-label="Ouvrir le menu" aria-expanded="false">
         <span class="ham-line"></span>
         <span class="ham-line"></span>
