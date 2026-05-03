@@ -266,7 +266,7 @@
       position: relative;
       display: flex;
       align-items: center;
-      padding: 0 5rem;
+      padding: 0 clamp(1.5rem, 5vw, 5rem);
       overflow: hidden;
     }
 
@@ -313,7 +313,7 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       align-items: end;
-      gap: 5rem;
+      gap: clamp(2rem, 4vw, 5rem);
     }
 
     .hero-eyebrow {
@@ -330,9 +330,9 @@
 
     .hero-title {
       font-family: 'ABC Arizona Flare', Georgia, serif;
-      font-size: 60px;
+      font-size: clamp(36px, 4.5vw, 60px);
       font-weight: 400;
-      line-height: 62px;
+      line-height: 1.05;
       color: #FFFCF3;
       letter-spacing: -0.01em;
       white-space: nowrap;
@@ -1274,13 +1274,16 @@
        RESPONSIVE
     ───────────────────────────────────────── */
     @media (max-width: 1100px) {
-      .header-strip { padding: 1rem 2rem; }
+      .header-strip { padding: 0.5rem 1rem 0.5rem 0.5rem; }
+      .header-logo { padding: 1.1rem 1.75rem; }
       .header-location { display: none; }
       .header-cols { display: none; }
       .header-utils a:not(.header-cta) { display: none; }
       .hamburger { display: flex; }
       section { padding: 6rem 2.5rem; }
-      .hero { padding: 6rem 2.5rem 0; }
+      .hero { padding: 0 2.5rem; }
+      .hero-title { white-space: normal; font-size: clamp(32px, 5.5vw, 48px); }
+      .hero-content { gap: 3rem; }
       .hero-content, .about-grid, .stakes-head, .services-head,
       .process-head, .brands-head, .contact-grid, .editorial-grid { grid-template-columns: 1fr; gap: 4rem; }
       .about-badge { right: 0; }
@@ -1318,7 +1321,11 @@
 
     @media (max-width: 700px) {
       section { padding: 4.5rem 1.5rem; }
-      .hero { padding: 5rem 1.5rem 0; white-space: normal; }
+      .hero { padding: 0 1.5rem; }
+      .hero-title { font-size: clamp(28px, 8vw, 36px); white-space: normal; }
+      .hero-content { grid-template-columns: 1fr; gap: 2.5rem; align-items: start; padding-top: 5rem; }
+      .hero-right { padding-bottom: 6rem; }
+      .hero-actions { flex-direction: column; align-items: flex-start; gap: 1rem; }
       .about { padding: 0 0 4rem 0; }
       .about-grid { grid-template-columns: 1fr; gap: 2rem; }
       .about-photo { aspect-ratio: 4/3; }
