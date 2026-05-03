@@ -497,6 +497,7 @@
       grid-template-columns: 5fr 7fr;
       gap: 9rem;
       align-items: start;
+      padding-left: 2rem;
     }
 
     .about-visual { position: relative; }
@@ -504,6 +505,9 @@
     .about-photo {
       width: 100%;
       aspect-ratio: 3/4;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
     }
 
     .about-badge {
@@ -1344,7 +1348,7 @@
   <div class="inner">
     <div class="about-grid">
       <div class="about-visual reveal">
-        <div class="about-photo photo-placeholder" data-label="Votre photo"></div>
+        <img class="about-photo" src="images/portrait-ornella1.jpeg" alt="Portrait" loading="lazy">
         <div class="about-badge">
           <span class="badge-num">10+</span>
           <span class="badge-txt">Ans d'expérience</span>
