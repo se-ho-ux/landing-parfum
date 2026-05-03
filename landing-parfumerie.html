@@ -664,9 +664,15 @@
       z-index: 2;
     }
 
+    .stakes-img-wrap {
+      padding: 2rem 2rem 2rem 0;
+      display: flex;
+      align-items: stretch;
+    }
+
     .stakes-bg {
       width: 100%;
-      height: 100%;
+      height: clamp(340px, 55vh, 600px);
       object-fit: cover;
       object-position: center 40%;
       display: block;
@@ -683,12 +689,12 @@
     }
 
     .stakes-editorial-text {
-      font-family: var(--serif);
-      font-size: clamp(0.85rem, 1.2vw, 1rem);
+      font-family: 'Plus Jakarta Sans', var(--sans);
+      font-size: 14px;
       font-weight: 400;
-      font-style: italic;
-      line-height: 2.1;
-      color: #333;
+      font-style: normal;
+      line-height: 1.85;
+      color: #000;
     }
 
     .stake h3 {
@@ -1493,7 +1499,9 @@
       <h2 class="stakes-editorial-title reveal r1">Le Sillage de l'Excellence</h2>
       <p class="stakes-editorial-text reveal r2">Dans un univers où le flacon est une œuvre d'art, le service doit en être l'écrin. Chaque échange est une promesse, un acte de confiance absolue. Car si la fragrance séduit, c'est l'élégance de l'accueil qui fidélise. Offrir une expérience à la hauteur de vos créations, c'est s'assurer que l'émotion du premier instant devienne un attachement éternel.</p>
     </div>
-    <img src="images/flacon 1.jpeg" alt="" class="stakes-bg" aria-hidden="true">
+    <div class="stakes-img-wrap">
+      <img src="images/flacon 1.jpeg" alt="" class="stakes-bg" aria-hidden="true">
+    </div>
   </div>
 </section>
 
