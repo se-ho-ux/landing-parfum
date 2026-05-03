@@ -748,44 +748,23 @@
       align-self: end;
     }
 
-    .svc-row {
-      display: grid;
-      grid-template-columns: 4rem 1fr auto;
-      align-items: baseline;
-      gap: 3rem;
-      padding: 2.75rem 0;
-      border-top: 1px solid var(--line);
-      transition: padding-left 0.4s ease;
-      cursor: default;
-    }
-    .svc-row:last-child { border-bottom: 1px solid var(--line); }
-    .svc-row:hover { padding-left: 1.25rem; }
+    .services { padding-left: 0; padding-right: 0; }
 
-    .svc-n {
-      font-size: 0.6rem;
-      font-weight: 400;
-      color: var(--muted);
-      letter-spacing: 0.12em;
+    .svc-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      padding: 4rem 0;
     }
 
-    .svc-title {
-      font-family: var(--serif);
-      font-size: clamp(1.4rem, 2.5vw, 2rem);
-      font-weight: 400;
+    .svc-word {
+      font-family: 'Plus Jakarta Sans', var(--sans);
+      font-size: clamp(2.8rem, 6vw, 5.5rem);
+      font-weight: 700;
       color: var(--title);
-      letter-spacing: -0.01em;
-      transition: color 0.25s;
-    }
-    .svc-row:hover .svc-title { color: var(--body); }
-
-    .svc-quote {
-      font-size: 0.78rem;
-      font-style: italic;
-      font-weight: 300;
-      color: var(--muted);
-      max-width: 220px;
-      text-align: right;
-      line-height: 1.65;
+      line-height: 1;
+      letter-spacing: -0.02em;
+      display: block;
     }
 
     /* ─────────────────────────────────────────
@@ -1527,34 +1506,13 @@
 
 <!-- SERVICES -->
 <section class="services" id="services">
-  <div class="inner">
-    <div>
-      <div class="svc-row reveal">
-        <span class="svc-n">01</span>
-        <span class="svc-title">L'Accueil</span>
-        <span class="svc-quote">« Un sourire précède l'effluve. »</span>
-      </div>
-      <div class="svc-row reveal r1">
-        <span class="svc-n">02</span>
-        <span class="svc-title">La Prise en Charge</span>
-        <span class="svc-quote">« Écouter est un art rare. »</span>
-      </div>
-      <div class="svc-row reveal r2">
-        <span class="svc-n">03</span>
-        <span class="svc-title">Le Parcours Client</span>
-        <span class="svc-quote">« Chaque pas est une promesse. »</span>
-      </div>
-      <div class="svc-row reveal r3">
-        <span class="svc-n">04</span>
-        <span class="svc-title">La Présentation Produit</span>
-        <span class="svc-quote">« Un flacon porte une histoire. »</span>
-      </div>
-      <div class="svc-row reveal r4">
-        <span class="svc-n">05</span>
-        <span class="svc-title">Le Paiement</span>
-        <span class="svc-quote">« Clore avec grâce. »</span>
-      </div>
-    </div>
+  <div class="svc-list reveal">
+    <span class="svc-word">Accueil</span>
+    <span class="svc-word">Besoin</span>
+    <span class="svc-word">Conseil</span>
+    <span class="svc-word">Immersion</span>
+    <span class="svc-word">Récit</span>
+    <span class="svc-word">Fidélisation</span>
   </div>
 </section>
 
