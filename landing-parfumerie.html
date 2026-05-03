@@ -865,50 +865,64 @@
 
     @keyframes drift1 {
       0%   { transform: translate(0px, 0px) rotate(-2deg); }
-      25%  { transform: translate(12px, -18px) rotate(1.5deg); }
-      50%  { transform: translate(-8px, -30px) rotate(-1deg); }
-      75%  { transform: translate(18px, -12px) rotate(2.5deg); }
+      18%  { transform: translate(22px, -32px) rotate(3deg); }
+      40%  { transform: translate(-18px, -55px) rotate(-1.5deg); }
+      65%  { transform: translate(30px, -28px) rotate(4deg); }
+      82%  { transform: translate(-8px, -48px) rotate(-3deg); }
       100% { transform: translate(0px, 0px) rotate(-2deg); }
     }
     @keyframes drift2 {
       0%   { transform: translate(0px, 0px) rotate(3deg); }
-      30%  { transform: translate(-14px, -22px) rotate(-2deg); }
-      60%  { transform: translate(10px, -35px) rotate(1deg); }
+      22%  { transform: translate(-28px, -40px) rotate(-3.5deg); }
+      48%  { transform: translate(18px, -62px) rotate(2deg); }
+      74%  { transform: translate(-35px, -22px) rotate(-1deg); }
       100% { transform: translate(0px, 0px) rotate(3deg); }
     }
     @keyframes drift3 {
       0%   { transform: translate(0px, 0px) rotate(-1deg); }
-      20%  { transform: translate(16px, -14px) rotate(2deg); }
-      55%  { transform: translate(-6px, -28px) rotate(-3deg); }
-      80%  { transform: translate(20px, -8px) rotate(0.5deg); }
+      15%  { transform: translate(32px, -28px) rotate(3.5deg); }
+      38%  { transform: translate(-14px, -50px) rotate(-4deg); }
+      60%  { transform: translate(26px, -72px) rotate(1.5deg); }
+      82%  { transform: translate(-22px, -38px) rotate(-2.5deg); }
       100% { transform: translate(0px, 0px) rotate(-1deg); }
     }
     @keyframes drift4 {
       0%   { transform: translate(0px, 0px) rotate(2deg); }
-      35%  { transform: translate(-20px, -18px) rotate(-1.5deg); }
-      65%  { transform: translate(8px, -32px) rotate(3deg); }
+      28%  { transform: translate(-38px, -35px) rotate(-2deg); }
+      55%  { transform: translate(16px, -58px) rotate(4.5deg); }
+      78%  { transform: translate(-26px, -20px) rotate(-1.5deg); }
       100% { transform: translate(0px, 0px) rotate(2deg); }
     }
     @keyframes drift5 {
       0%   { transform: translate(0px, 0px) rotate(-3deg); }
-      40%  { transform: translate(14px, -24px) rotate(2deg); }
-      70%  { transform: translate(-10px, -16px) rotate(-0.5deg); }
+      20%  { transform: translate(28px, -45px) rotate(3deg); }
+      45%  { transform: translate(-20px, -30px) rotate(-4.5deg); }
+      68%  { transform: translate(36px, -60px) rotate(2deg); }
+      88%  { transform: translate(-12px, -42px) rotate(-1deg); }
       100% { transform: translate(0px, 0px) rotate(-3deg); }
     }
     @keyframes drift6 {
       0%   { transform: translate(0px, 0px) rotate(1deg); }
-      30%  { transform: translate(-16px, -20px) rotate(-2.5deg); }
-      60%  { transform: translate(12px, -38px) rotate(2deg); }
-      90%  { transform: translate(-4px, -10px) rotate(-1deg); }
+      25%  { transform: translate(-32px, -38px) rotate(-3deg); }
+      50%  { transform: translate(24px, -65px) rotate(3.5deg); }
+      75%  { transform: translate(-18px, -28px) rotate(-2deg); }
       100% { transform: translate(0px, 0px) rotate(1deg); }
     }
+    @keyframes drift7 {
+      0%   { transform: translate(0px, 0px) rotate(-2.5deg); }
+      30%  { transform: translate(20px, -50px) rotate(4deg); }
+      58%  { transform: translate(-30px, -35px) rotate(-1.5deg); }
+      80%  { transform: translate(14px, -68px) rotate(3deg); }
+      100% { transform: translate(0px, 0px) rotate(-2.5deg); }
+    }
 
-    .float-img:nth-child(1) { top: 8%;  left: 12%; animation: drift1 9s ease-in-out infinite; }
-    .float-img:nth-child(2) { top: 22%; left: 52%; animation: drift2 11s ease-in-out infinite; animation-delay: -3s; }
-    .float-img:nth-child(3) { top: 44%; left: 8%;  animation: drift3 10s ease-in-out infinite; animation-delay: -6s; }
-    .float-img:nth-child(4) { top: 52%; left: 58%; animation: drift4 12s ease-in-out infinite; animation-delay: -2s; }
-    .float-img:nth-child(5) { top: 68%; left: 20%; animation: drift5 8.5s ease-in-out infinite; animation-delay: -5s; }
-    .float-img:nth-child(6) { top: 76%; left: 48%; animation: drift6 13s ease-in-out infinite; animation-delay: -4s; }
+    .float-img:nth-child(1) { top: 4%;  left: 6%;  animation: drift1 13s ease-in-out infinite; }
+    .float-img:nth-child(2) { top: 16%; left: 55%; animation: drift2 15s ease-in-out infinite; animation-delay: -4s; }
+    .float-img:nth-child(3) { top: 36%; left: 4%;  animation: drift3 12s ease-in-out infinite; animation-delay: -7s; }
+    .float-img:nth-child(4) { top: 48%; left: 60%; animation: drift4 16s ease-in-out infinite; animation-delay: -2s; }
+    .float-img:nth-child(5) { top: 62%; left: 18%; animation: drift5 11s ease-in-out infinite; animation-delay: -9s; }
+    .float-img:nth-child(6) { top: 74%; left: 52%; animation: drift6 14s ease-in-out infinite; animation-delay: -5s; }
+    .float-img:nth-child(7) { top: 82%; left: 8%;  animation: drift7 17s ease-in-out infinite; animation-delay: -3s; }
 
     .editorial-body {
       padding: 7rem 6rem;
@@ -1682,12 +1696,13 @@
 <div class="editorial">
   <div class="editorial-grid">
     <div class="editorial-float-col">
-      <img class="float-img" src="images/fleur_g%20_.gif"         alt="">
-      <img class="float-img" src="images/smell-poster.jpeg"       alt="">
-      <img class="float-img" src="images/huile1.jpg"              alt="">
-      <img class="float-img" src="images/diptyque-bottle.png"     alt="">
-      <img class="float-img" src="images/fleur3.jpg"              alt="">
-      <img class="float-img" src="images/perfume-boutique.jpeg"   alt="">
+      <img class="float-img" src="images/fleur_g%20_.gif"                   alt="">
+      <img class="float-img" src="images/smell-poster.jpeg"               alt="">
+      <img class="float-img" src="images/huile1.jpg"                      alt="">
+      <img class="float-img" src="images/diptyque-bottle.png"             alt="">
+      <img class="float-img" src="images/fleur3.jpg"                      alt="">
+      <img class="float-img" src="images/perfume-boutique.jpeg"           alt="">
+      <img class="float-img" src="images/boutique-acqua%20di%20parma.jpeg" alt="">
     </div>
     <div class="editorial-body">
       <span class="eyebrow reveal">La philosophie</span>
