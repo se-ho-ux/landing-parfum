@@ -1591,7 +1591,7 @@
       <span class="svc-word" data-img="images/parfums-solide.jpeg" data-quote="« Écouter est un art rare »">Besoin</span>
       <span class="svc-word" data-img="images/perfumes-stacked.jpeg" data-quote="« Chaque pas est une promesse. »">Conseil</span>
       <span class="svc-word" data-img="images/vintage-label.jpeg" data-quote="« Une création porte une histoire »">Récit</span>
-      <span class="svc-word" data-img="images/packaging-perfume -.jpeg" data-quote="« Le souvenir devient signature »">Fidélisation</span>
+      <span class="svc-word" data-img="images/packaging-perfume%20-.jpeg" data-quote="« Le souvenir devient signature »">Fidélisation</span>
     </div>
     <div class="svc-preview" id="svc-preview" aria-hidden="true">
       <p class="svc-preview-quote" id="svc-preview-quote"></p>
@@ -1859,17 +1859,16 @@
   const svcPreviewQuote = document.getElementById('svc-preview-quote');
 
   if (svcPreview) {
-    let preloadedSrc = '';
+    const preloaded = {};
     document.querySelectorAll('.svc-word').forEach(word => {
-      // preload images on page load
-      const img = new Image();
-      img.src = word.dataset.img;
-
+      const src = word.dataset.img;
+      if (src && !preloaded[src]) {
+        const img = new Image();
+        img.src = src;
+        preloaded[src] = img;
+      }
       word.addEventListener('mouseenter', () => {
-        const src = word.dataset.img;
-        if (svcPreviewImg.getAttribute('src') !== src) {
-          svcPreviewImg.setAttribute('src', src);
-        }
+        svcPreviewImg.src = word.dataset.img;
         svcPreviewQuote.textContent = word.dataset.quote;
         svcPreview.classList.add('visible');
       });
