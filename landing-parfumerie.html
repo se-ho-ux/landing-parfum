@@ -139,8 +139,10 @@
       gap: 0;
       align-items: stretch;
       margin-left: 50%;
-      background: #DEDECF;
+      background: transparent;
+      transition: background 0.6s cubic-bezier(0.16, 1, 0.3, 1);
     }
+    .site-header.past-hero .header-cols { background: #DEDECF; }
 
     .header-col {
       display: flex;
@@ -158,18 +160,18 @@
       line-height: 17px;
       font-weight: 400;
       letter-spacing: 0.02em;
-      color: #000000;
+      color: rgba(255,252,243,0.85);
       text-decoration: none;
       display: flex;
       justify-content: flex-start;
       align-items: center;
       gap: 0.2rem;
-      transition: color 0.25s ease;
+      transition: color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
       white-space: nowrap;
     }
-    .header-col a:hover { color: rgba(0,0,0,0.55); }
-    .site-header.scrolled .header-col a { color: #000000; }
-    .site-header.scrolled .header-col a:hover { color: rgba(0,0,0,0.55); }
+    .header-col a:hover { color: #FFFCF3; }
+    .site-header.past-hero .header-col a { color: #000000; }
+    .site-header.past-hero .header-col a:hover { color: rgba(0,0,0,0.55); }
 
     .nav-arrow {
       font-size: 0.7rem;
@@ -1694,7 +1696,9 @@
     if (!ticking) {
       requestAnimationFrame(() => {
         const isScrolled = window.scrollY > 40;
+        const isPastHero = window.scrollY > (window.innerHeight * 0.85);
         siteHeader.classList.toggle('scrolled', isScrolled);
+        siteHeader.classList.toggle('past-hero', isPastHero);
         document.body.classList.toggle('scrolled', isScrolled);
         ticking = false;
       });
