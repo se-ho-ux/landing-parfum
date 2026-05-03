@@ -1165,16 +1165,72 @@
       to   { opacity: 1; transform: translateX(0);     letter-spacing: 0.3em; }
     }
 
+    /* scroll reveal — spring cubic-bezier */
     .reveal {
       opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.85s ease, transform 0.85s ease;
+      transform: translateY(28px);
+      transition:
+        opacity  0.9s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .reveal.visible { opacity: 1; transform: translateY(0); }
-    .r1 { transition-delay: 0.1s; }
-    .r2 { transition-delay: 0.2s; }
-    .r3 { transition-delay: 0.3s; }
-    .r4 { transition-delay: 0.4s; }
+    .r1 { transition-delay: 0.08s; }
+    .r2 { transition-delay: 0.16s; }
+    .r3 { transition-delay: 0.24s; }
+    .r4 { transition-delay: 0.32s; }
+
+    /* nav links — underline slide */
+    .header-col a,
+    .footer-links a {
+      position: relative;
+    }
+    .header-col a::after,
+    .footer-links a::after {
+      content: '';
+      position: absolute;
+      left: 0; bottom: -1px;
+      width: 0; height: 1px;
+      background: currentColor;
+      transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .header-col a:hover::after,
+    .footer-links a:hover::after { width: 100%; }
+
+    /* btn-primary — fill wipe on hover */
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--cream);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 0;
+    }
+    .btn-primary:hover::before { transform: scaleX(1); }
+    .btn-primary > * { position: relative; z-index: 1; }
+    .btn-primary { transition: border-color 0.45s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease; }
+
+    /* section titles — clip reveal */
+    .section-title {
+      overflow: hidden;
+    }
+
+    /* custom cursor dot */
+    .cursor-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: #000;
+      position: fixed;
+      top: 0; left: 0;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: transform 0.1s ease, opacity 0.3s ease, width 0.3s cubic-bezier(0.16,1,0.3,1), height 0.3s cubic-bezier(0.16,1,0.3,1);
+      mix-blend-mode: difference;
+    }
+    .cursor-dot.hovering { width: 32px; height: 32px; opacity: 0.15; }
+    @media (hover: none) { .cursor-dot { display: none; } }
 
     /* ─────────────────────────────────────────
        RESPONSIVE
@@ -1222,6 +1278,7 @@
   </style>
 </head>
 <body>
+<div class="cursor-dot" id="cursor-dot"></div>
 
 <!-- HEADER -->
 <header id="site-header" class="site-header">
@@ -1644,6 +1701,32 @@
       r.style.cssText = `width:${size}px;height:${size}px;left:${e.clientX-rect.left-size/2}px;top:${e.clientY-rect.top-size/2}px`;
       btn.appendChild(r);
       setTimeout(() => r.remove(), 550);
+    });
+  });
+
+  /* ── custom cursor ── */
+  const cursorDot = document.getElementById('cursor-dot');
+  if (window.matchMedia('(hover: hover)').matches && cursorDot) {
+    let cx = 0, cy = 0, tx = 0, ty = 0;
+    document.addEventListener('mousemove', e => { tx = e.clientX; ty = e.clientY; });
+    (function animate() {
+      cx += (tx - cx) * 0.18;
+      cy += (ty - cy) * 0.18;
+      cursorDot.style.left = cx + 'px';
+      cursorDot.style.top  = cy + 'px';
+      requestAnimationFrame(animate);
+    })();
+    document.querySelectorAll('a, button, [role="button"]').forEach(el => {
+      el.addEventListener('mouseenter', () => cursorDot.classList.add('hovering'));
+      el.addEventListener('mouseleave', () => cursorDot.classList.remove('hovering'));
+    });
+  }
+
+  /* ── nav arrow micro-interaction ── */
+  document.querySelectorAll('.header-col a').forEach(a => {
+    a.addEventListener('mouseenter', () => {
+      const arrow = a.querySelector('.nav-arrow');
+      if (arrow) { arrow.style.transition = 'transform 0.4s cubic-bezier(0.16,1,0.3,1), opacity 0.2s'; }
     });
   });
 </script>
