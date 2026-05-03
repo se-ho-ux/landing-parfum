@@ -1768,46 +1768,37 @@
   <div class="inner">
     <div class="brands-head">
       <h2 class="section-title reveal r1">Maisons &amp; Univers de <em>prédilection</em></h2>
-      <span class="brands-count reveal">08 Maisons</span>
     </div>
     <div class="brands-grid">
       <div class="brand-item reveal">
-        <span class="brand-num">01</span>
         <span class="brand-name">Diptyque</span>
         <span class="brand-sub">Paris · 1961</span>
       </div>
       <div class="brand-item reveal r1">
-        <span class="brand-num">02</span>
         <span class="brand-name">Serge Lutens</span>
         <span class="brand-sub">Parfumeur · Paris</span>
       </div>
       <div class="brand-item reveal r2">
-        <span class="brand-num">03</span>
         <span class="brand-name">Le Labo</span>
         <span class="brand-sub">New York · Paris</span>
       </div>
       <div class="brand-item reveal r3">
-        <span class="brand-num">04</span>
         <span class="brand-name">Byredo</span>
         <span class="brand-sub">Stockholm · 2006</span>
       </div>
       <div class="brand-item reveal">
-        <span class="brand-num">05</span>
         <span class="brand-name">Maison Margiela</span>
         <span class="brand-sub">Replica · Fragrances</span>
       </div>
       <div class="brand-item reveal r1">
-        <span class="brand-num">06</span>
         <span class="brand-name">Acqua di Parma</span>
         <span class="brand-sub">Parma · 1916</span>
       </div>
       <div class="brand-item reveal r2">
-        <span class="brand-num">07</span>
         <span class="brand-name">Matière Première</span>
         <span class="brand-sub">Paris · 2019</span>
       </div>
       <div class="brand-item reveal r3">
-        <span class="brand-num">08</span>
         <span class="brand-name">Frédéric Malle</span>
         <span class="brand-sub">Éditions de Parfums · 2000</span>
       </div>
@@ -1942,6 +1933,11 @@
     if (contactSection) {
       contactSection.addEventListener('mouseenter', () => cursorDot.style.opacity = '0');
       contactSection.addEventListener('mouseleave', () => cursorDot.style.opacity = '');
+    }
+    const brandsSection = document.querySelector('.brands');
+    if (brandsSection) {
+      brandsSection.addEventListener('mouseenter', () => cursorDot.style.opacity = '0');
+      brandsSection.addEventListener('mouseleave', () => cursorDot.style.opacity = '');
     }
   }
 
