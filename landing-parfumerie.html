@@ -413,25 +413,42 @@
 
     .hero-scroll {
       position: absolute;
-      bottom: 3rem;
+      bottom: 2.5rem;
       left: 50%;
       transform: translateX(-50%);
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 0.6rem;
-      color: var(--muted);
-      font-size: 0.55rem;
-      letter-spacing: 0.24em;
-      text-transform: uppercase;
+      gap: 0;
+      cursor: pointer;
       animation: fadeUp 1s ease 1.2s both;
+      text-decoration: none;
     }
 
-    .scroll-line {
-      width: 1px;
-      height: 50px;
-      background: linear-gradient(to bottom, var(--line), transparent);
-      animation: scrollDrop 2.5s ease-in-out infinite;
+    .scroll-arrow {
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: arrowBounce 2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+    }
+
+    .scroll-arrow svg {
+      width: 22px;
+      height: 22px;
+      stroke: rgba(255,252,243,0.7);
+      stroke-width: 1.5;
+      fill: none;
+      transition: stroke 0.3s ease;
+    }
+
+    .hero-scroll:hover .scroll-arrow svg { stroke: #FFFCF3; }
+
+    @keyframes arrowBounce {
+      0%, 100% { transform: translateY(0); opacity: 0.7; }
+      40%       { transform: translateY(8px); opacity: 1; }
+      60%       { transform: translateY(5px); opacity: 1; }
     }
     @keyframes scrollDrop {
       0%, 100% { opacity: 0.3; transform: scaleY(0.5) translateY(-20%); }
@@ -1350,10 +1367,14 @@
       </div>
     </div>
   </div>
-  <div class="hero-scroll">
-    <div class="scroll-line"></div>
-    Défiler
-  </div>
+  <a href="#about" class="hero-scroll" aria-label="Défiler vers le bas">
+    <div class="scroll-arrow">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <line x1="12" y1="4" x2="12" y2="20"/>
+        <polyline points="6 14 12 20 18 14"/>
+      </svg>
+    </div>
+  </a>
 </section>
 
 <hr class="rule">
