@@ -642,60 +642,53 @@
        STAKES
     ───────────────────────────────────────── */
     .stakes {
-      background: var(--warm);
+      background: #fff;
       position: relative;
       overflow: hidden;
+      padding: 0;
+    }
+
+    .stakes-layout {
+      display: grid;
+      grid-template-columns: 1fr 3fr;
+      min-height: 70vh;
+    }
+
+    .stakes-text-panel {
+      background: #fff;
+      padding: clamp(3rem, 6vw, 7rem) clamp(2rem, 4vw, 5rem);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      z-index: 2;
     }
 
     .stakes-bg {
-      position: absolute;
-      inset: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
       object-position: center 40%;
-      opacity: 0.22;
-      mix-blend-mode: multiply;
-      pointer-events: none;
-      transform: scale(1.04);
-      transition: transform 8s ease;
-    }
-
-    .stakes::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse at center, rgba(245,242,235,0.45) 0%, rgba(237,232,220,0.85) 70%);
-      z-index: 1;
-      pointer-events: none;
-    }
-
-    .stakes-editorial {
-      position: relative;
-      z-index: 2;
-      max-width: 780px;
-      margin: 0 auto;
-      text-align: center;
+      display: block;
     }
 
     .stakes-editorial-title {
       font-family: var(--serif);
-      font-size: clamp(2.2rem, 4vw, 3.8rem);
+      font-size: clamp(1.8rem, 3vw, 3rem);
       font-weight: 400;
       letter-spacing: -0.015em;
-      color: var(--title);
-      margin-bottom: 2.5rem;
+      color: #000;
+      margin-bottom: 2rem;
       line-height: 1.1;
     }
 
     .stakes-editorial-text {
       font-family: var(--serif);
-      font-size: clamp(1rem, 1.5vw, 1.15rem);
+      font-size: clamp(0.85rem, 1.2vw, 1rem);
       font-weight: 400;
       font-style: italic;
       line-height: 2.1;
-      color: var(--body);
+      color: #333;
     }
 
     .stake h3 {
@@ -1302,6 +1295,8 @@
       .hero { padding: 0 2.5rem; }
       .hero-title { white-space: normal; font-size: clamp(32px, 5.5vw, 48px); }
       .hero-content { gap: 3rem; }
+      .stakes-layout { grid-template-columns: 1fr; }
+      .stakes-bg { min-height: 50vw; }
       .hero-content, .about-grid, .stakes-head, .services-head,
       .process-head, .brands-head, .contact-grid, .editorial-grid { grid-template-columns: 1fr; gap: 4rem; }
       .about-badge { right: 0; }
@@ -1493,12 +1488,12 @@
 
 <!-- STAKES -->
 <section class="stakes" id="stakes">
-  <img src="images/flacon 1.jpeg" alt="" class="stakes-bg" aria-hidden="true">
-  <div class="inner">
-    <div class="stakes-editorial reveal">
+  <div class="stakes-layout">
+    <div class="stakes-text-panel reveal">
       <h2 class="stakes-editorial-title reveal r1">Le Sillage de l'Excellence</h2>
       <p class="stakes-editorial-text reveal r2">Dans un univers où le flacon est une œuvre d'art, le service doit en être l'écrin. Chaque échange est une promesse, un acte de confiance absolue. Car si la fragrance séduit, c'est l'élégance de l'accueil qui fidélise. Offrir une expérience à la hauteur de vos créations, c'est s'assurer que l'émotion du premier instant devienne un attachement éternel.</p>
     </div>
+    <img src="images/flacon 1.jpeg" alt="" class="stakes-bg" aria-hidden="true">
   </div>
 </section>
 
