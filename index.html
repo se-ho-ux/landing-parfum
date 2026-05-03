@@ -1896,13 +1896,25 @@
   <span class="footer-logo">L'Art du Service Client</span>
   <span class="footer-copy">© 2026 · Tous droits réservés</span>
   <div class="footer-links">
-    <a href="#">Mentions légales</a>
-    <a href="#">Confidentialité</a>
+    <span style="font-size:0.55rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.4);">Mentions légales</span>
+    <span style="font-size:0.55rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.4);">Confidentialité</span>
     <a href="https://www.linkedin.com/in/ornella-toscano/" target="_blank" rel="noopener">LinkedIn</a>
   </div>
 </footer>
 
 <script>
+  /* ── clean anchor navigation (no # in URL) ── */
+  document.addEventListener('click', e => {
+    const a = e.target.closest('a[href^="#"]');
+    if (!a) return;
+    e.preventDefault();
+    const hash = a.getAttribute('href');
+    if (!hash || hash === '#') return;
+    const target = document.querySelector(hash);
+    if (target) target.scrollIntoView({ behavior: 'smooth' });
+    history.replaceState(null, '', window.location.pathname);
+  });
+
   const siteHeader  = document.getElementById('site-header');
   const hamburger   = document.getElementById('hamburger');
   const mobileMenu  = document.getElementById('mobile-menu');
