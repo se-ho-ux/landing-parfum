@@ -490,21 +490,30 @@
     /* ─────────────────────────────────────────
        ABOUT
     ───────────────────────────────────────── */
-    .about { background: var(--white); }
+    .about {
+      background: var(--white);
+      padding-top: 0;
+      overflow: hidden;
+    }
+
+    .about .inner { padding-top: 0; }
 
     .about-grid {
       display: grid;
       grid-template-columns: 5fr 7fr;
-      gap: 9rem;
+      gap: 6rem;
       align-items: start;
-      padding-left: 2rem;
     }
 
-    .about-visual { position: relative; }
+    .about-visual {
+      position: relative;
+      margin-left: -5rem;
+      margin-top: -9rem;
+    }
 
     .about-photo {
       width: 100%;
-      aspect-ratio: 3/4;
+      aspect-ratio: 2/3;
       object-fit: cover;
       object-position: center top;
       display: block;
@@ -539,9 +548,9 @@
       margin-top: 0.4rem;
     }
 
-    .about-text-block { padding-top: 1rem; }
+    .about-text-block { padding-top: 5rem; }
 
-    .about-title { margin-bottom: 0.75rem; }
+    .about-title { margin-bottom: 0.5rem; }
 
     .about-role {
       font-size: 0.65rem;
@@ -549,14 +558,14 @@
       text-transform: uppercase;
       color: var(--muted);
       display: block;
-      margin-bottom: 3rem;
+      margin-bottom: 1.5rem;
     }
 
     .about-body {
       font-size: 0.95rem;
-      line-height: 1.95;
+      line-height: 1.7;
       color: var(--body);
-      margin-bottom: 4rem;
+      margin-bottom: 2rem;
     }
 
     .pillars { border-top: 1px solid var(--line); }
@@ -565,7 +574,7 @@
       display: grid;
       grid-template-columns: 3rem 1fr;
       gap: 1.5rem;
-      padding: 2rem 0;
+      padding: 1.25rem 0;
       border-bottom: 1px solid var(--line);
     }
 
