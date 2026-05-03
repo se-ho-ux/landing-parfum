@@ -380,12 +380,11 @@
       gap: 0.7rem;
       position: relative;
       overflow: hidden;
-      transition: background 0.3s, border-color 0.3s, color 0.3s;
+      transition: color 0.5s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.5s cubic-bezier(0.16, 1, 0.3, 1);
       cursor: pointer;
     }
     .btn-primary:hover {
-      background: transparent;
-      border-color: rgba(255,252,243,0.6);
+      border-color: rgba(255,252,243,0.9);
       color: #FFFCF3;
     }
     .btn-primary .arrow { transition: transform 0.25s; }
@@ -1684,7 +1683,7 @@
     });
   });
 
-  document.querySelectorAll('.btn-primary, .btn-dark').forEach(btn => {
+  document.querySelectorAll('.btn-dark').forEach(btn => {
     btn.addEventListener('click', function(e) {
       const r = document.createElement('span');
       const rect = btn.getBoundingClientRect();
