@@ -1930,19 +1930,22 @@
       svcPreview.classList.add('visible');
     }
 
-    function clearAll() {
-      svcWords.forEach(w => w.style.color = '');
-      svcPreview.classList.remove('visible');
+    function resetToDefault() {
+      activateWord(svcWords[0]);
     }
 
+    resetToDefault();
+
+    let resetTimer;
     svcWords.forEach(word => {
-      word.addEventListener('mouseenter', () => activateWord(word));
+      word.addEventListener('mouseenter', () => {
+        clearTimeout(resetTimer);
+        activateWord(word);
+      });
+      word.addEventListener('mouseleave', () => {
+        resetTimer = setTimeout(resetToDefault, 60);
+      });
     });
-
-    const svcList = document.querySelector('.svc-list');
-    if (svcList) {
-      svcList.addEventListener('mouseleave', clearAll);
-    }
   }
 </script>
 
