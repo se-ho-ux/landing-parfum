@@ -951,21 +951,22 @@
 
     .marquee-track {
       display: flex;
-      gap: 3rem;
+      gap: 1.2rem;
       animation: marquee 32s linear infinite;
       white-space: nowrap;
     }
     @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
     .marquee-item {
+      font-family: 'Plus Jakarta Sans', var(--sans);
       font-size: 0.6rem;
       font-weight: 400;
-      letter-spacing: 0.26em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: rgba(0,0,0,0.28);
+      color: #000;
       display: flex;
       align-items: center;
-      gap: 2rem;
+      gap: 1.2rem;
       flex-shrink: 0;
     }
 
@@ -1705,16 +1706,12 @@
 <div class="marquee-wrap">
   <div class="marquee-track">
     <span class="marquee-item">Formation équipe de vente <span class="marquee-dot"></span></span>
-    <span class="marquee-item">Audit &amp; Diagnostic service <span class="marquee-dot"></span></span>
-    <span class="marquee-item">Coaching individuel conseiller <span class="marquee-dot"></span></span>
     <span class="marquee-item">Scripts &amp; Protocoles <span class="marquee-dot"></span></span>
     <span class="marquee-item">Boutiques mono-marque <span class="marquee-dot"></span></span>
     <span class="marquee-item">Concept stores olfactifs <span class="marquee-dot"></span></span>
     <span class="marquee-item">Corners luxe en grands magasins <span class="marquee-dot"></span></span>
     <span class="marquee-item">Pop-ups &amp; installations éphémères <span class="marquee-dot"></span></span>
     <span class="marquee-item">Formation équipe de vente <span class="marquee-dot"></span></span>
-    <span class="marquee-item">Audit &amp; Diagnostic service <span class="marquee-dot"></span></span>
-    <span class="marquee-item">Coaching individuel conseiller <span class="marquee-dot"></span></span>
     <span class="marquee-item">Scripts &amp; Protocoles <span class="marquee-dot"></span></span>
     <span class="marquee-item">Boutiques mono-marque <span class="marquee-dot"></span></span>
     <span class="marquee-item">Concept stores olfactifs <span class="marquee-dot"></span></span>
