@@ -1936,14 +1936,12 @@
 
     resetToDefault();
 
-    let resetTimer;
     svcWords.forEach(word => {
-      word.addEventListener('mouseenter', () => {
-        clearTimeout(resetTimer);
-        activateWord(word);
-      });
-      word.addEventListener('mouseleave', () => {
-        resetTimer = setTimeout(resetToDefault, 60);
+      word.addEventListener('mouseenter', () => activateWord(word));
+      word.addEventListener('mouseleave', (e) => {
+        const to = e.relatedTarget;
+        const goingToWord = [...svcWords].some(w => w === to || w.contains(to));
+        if (!goingToWord) resetToDefault();
       });
     });
   }
