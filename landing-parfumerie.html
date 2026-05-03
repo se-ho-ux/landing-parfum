@@ -64,9 +64,9 @@
         backdrop-filter 0.6s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .site-header.scrolled {
-      background: #F5F5F1;
-      border-bottom-color: var(--line);
-      backdrop-filter: blur(12px);
+      background: transparent;
+      border-bottom-color: transparent;
+      backdrop-filter: none;
     }
 
     .header-strip {
@@ -95,7 +95,7 @@
     }
     .header-logo:hover { background: #CECEBF; }
     .site-header.scrolled .header-logo {
-      background: transparent;
+      background: #DEDECF;
       color: #000000;
     }
 
@@ -127,11 +127,11 @@
     }
     .header-utils .header-cta:hover { background: #CECEBF; }
     .site-header.scrolled .header-utils .header-cta {
-      background: transparent;
-      border: 1px solid #000000;
+      background: #DEDECF;
+      border: none;
       color: #000000;
     }
-    .site-header.scrolled .header-utils .header-cta:hover { background: var(--cream); }
+    .site-header.scrolled .header-utils .header-cta:hover { background: #CECEBF; }
 
     /* ── colonnes nav ── */
     .header-cols {
@@ -167,8 +167,8 @@
       white-space: nowrap;
     }
     .header-col a:hover { color: #FFFCF3; }
-    .site-header.scrolled .header-col a { color: #000000; }
-    .site-header.scrolled .header-col a:hover { color: #C4C4AB; }
+    .site-header.scrolled .header-col a { color: rgba(0,0,0,0.75); }
+    .site-header.scrolled .header-col a:hover { color: #000000; }
 
     .nav-arrow {
       font-size: 0.7rem;
