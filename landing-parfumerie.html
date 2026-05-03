@@ -384,9 +384,9 @@
       cursor: pointer;
     }
     .btn-primary:hover {
-      background: var(--cream);
-      border-color: var(--title);
-      color: var(--title);
+      background: transparent;
+      border-color: rgba(255,252,243,0.6);
+      color: #FFFCF3;
     }
     .btn-primary .arrow { transition: transform 0.25s; }
     .btn-primary:hover .arrow { transform: translateX(4px); }
@@ -1196,20 +1196,10 @@
     .header-col a:hover::after,
     .footer-links a:hover::after { width: 100%; }
 
-    /* btn-primary — fill wipe on hover */
-    .btn-primary::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: var(--cream);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
-      z-index: 0;
-    }
-    .btn-primary:hover::before { transform: scaleX(1); }
     .btn-primary > * { position: relative; z-index: 1; }
-    .btn-primary { transition: border-color 0.45s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease; }
+    .btn-primary { transition: color 0.5s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
+    body.scrolled .btn-primary { color: #000000; border-color: rgba(0,0,0,0.4); }
+    body.scrolled .btn-primary:hover { color: #000000; border-color: rgba(0,0,0,0.6); }
 
     /* section titles — clip reveal */
     .section-title {
@@ -1657,7 +1647,9 @@
   window.addEventListener('scroll', () => {
     if (!ticking) {
       requestAnimationFrame(() => {
-        siteHeader.classList.toggle('scrolled', window.scrollY > 40);
+        const isScrolled = window.scrollY > 40;
+        siteHeader.classList.toggle('scrolled', isScrolled);
+        document.body.classList.toggle('scrolled', isScrolled);
         ticking = false;
       });
       ticking = true;
