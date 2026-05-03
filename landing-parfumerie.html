@@ -522,7 +522,7 @@
     .about-grid {
       display: grid;
       grid-template-columns: 4fr 5fr;
-      gap: 8rem;
+      gap: clamp(3rem, 6vw, 8rem);
       align-items: start;
     }
 
@@ -570,8 +570,23 @@
     }
 
     .about-text-block { padding-top: 2rem; padding-right: 0; position: relative; }
-    .about-title { margin-bottom: 2.5rem; margin-left: -14rem; position: absolute; top: 2rem; left: 0; white-space: nowrap; }
-    .about-body-group { margin-left: 16rem; width: 360px; padding-right: 0; padding-top: 8rem; text-align: left; }
+
+    .about-title {
+      position: absolute;
+      top: 2rem;
+      left: 0;
+      margin-left: clamp(-8rem, -10vw, -14rem);
+      margin-bottom: 2.5rem;
+      white-space: nowrap;
+    }
+
+    .about-body-group {
+      margin-left: clamp(4rem, 11vw, 16rem);
+      width: clamp(260px, 24vw, 360px);
+      padding-top: clamp(5rem, 7vw, 8rem);
+      padding-right: 0;
+      text-align: left;
+    }
 
 
     .about-role {
@@ -1269,6 +1284,22 @@
       .hero-content, .about-grid, .stakes-head, .services-head,
       .process-head, .brands-head, .contact-grid, .editorial-grid { grid-template-columns: 1fr; gap: 4rem; }
       .about-badge { right: 0; }
+
+      /* about — tablet : titre revient dans le flux */
+      .about { padding: 3rem 0 6rem 0; }
+      .about-grid { grid-template-columns: 1fr 1fr; gap: 3rem; }
+      .about-title {
+        position: relative;
+        top: auto; left: auto;
+        margin-left: 0;
+        white-space: normal;
+        margin-bottom: 1.5rem;
+      }
+      .about-body-group {
+        margin-left: 0;
+        width: 100%;
+        padding-top: 0;
+      }
       .process-grid { grid-template-columns: repeat(2, 1fr); }
       .process-step:nth-child(2) { border-right: none; }
       .process-step:nth-child(1), .process-step:nth-child(2) { border-bottom: 1px solid var(--line); }
@@ -1288,6 +1319,12 @@
     @media (max-width: 700px) {
       section { padding: 4.5rem 1.5rem; }
       .hero { padding: 5rem 1.5rem 0; white-space: normal; }
+      .about { padding: 0 0 4rem 0; }
+      .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .about-photo { aspect-ratio: 4/3; }
+      .about-title { white-space: normal; margin-left: 1.5rem; }
+      .about-text-block { padding: 0 1.5rem; }
+      .about-body-group { margin-left: 0; width: 100%; padding-top: 1rem; }
       .stakes-grid { grid-template-columns: 1fr; }
       .stake { border-right: none; }
       .stake:nth-child(3) { border-bottom: 1px solid var(--line); }
