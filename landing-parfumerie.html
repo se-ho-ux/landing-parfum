@@ -717,7 +717,20 @@
     /* ─────────────────────────────────────────
        SERVICES
     ───────────────────────────────────────── */
-    .services { background: var(--white); }
+    .services { background: var(--white); padding-top: 0; }
+
+    .services-banner {
+      width: 100%;
+      overflow: hidden;
+      line-height: 0;
+    }
+
+    .services-banner-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
 
     .services-head {
       display: grid;
@@ -1508,16 +1521,10 @@
 
 <!-- SERVICES -->
 <section class="services" id="services">
+  <div class="services-banner">
+    <img src="images/Bandeau3.jpg" alt="" class="services-banner-img" aria-hidden="true">
+  </div>
   <div class="inner">
-    <div class="services-head">
-      <div>
-        <span class="eyebrow reveal">Expertise</span>
-        <h2 class="section-title reveal r1">Cinq actes<br>d'un <em>ballet parfait</em></h2>
-      </div>
-      <p class="services-intro reveal r2">
-        Le client de niche ne cherche pas un produit. Il cherche une émotion, un récit, une appartenance. Il mérite un interlocuteur à son niveau.
-      </p>
-    </div>
     <div>
       <div class="svc-row reveal">
         <span class="svc-n">01</span>
