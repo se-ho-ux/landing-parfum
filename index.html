@@ -1436,21 +1436,6 @@
       overflow: hidden;
     }
 
-    /* custom cursor dot */
-    .cursor-dot {
-      width: 6px; height: 6px;
-      border-radius: 50%;
-      background: #000;
-      position: fixed;
-      top: 0; left: 0;
-      pointer-events: none;
-      z-index: 9999;
-      transform: translate(-50%, -50%);
-      transition: transform 0.1s ease, opacity 0.3s ease, width 0.3s cubic-bezier(0.16,1,0.3,1), height 0.3s cubic-bezier(0.16,1,0.3,1);
-      mix-blend-mode: difference;
-    }
-    .cursor-dot.hovering { width: 32px; height: 32px; opacity: 0.15; }
-    @media (hover: none) { .cursor-dot { display: none; } }
 
     /* ─────────────────────────────────────────
        RESPONSIVE
@@ -1563,7 +1548,6 @@
   </style>
 </head>
 <body>
-<div class="cursor-dot" id="cursor-dot"></div>
 
 <!-- HEADER -->
 <header id="site-header" class="site-header">
@@ -1908,38 +1892,6 @@
     });
   });
 
-  /* ── custom cursor ── */
-  const cursorDot = document.getElementById('cursor-dot');
-  if (window.matchMedia('(hover: hover)').matches && cursorDot) {
-    let cx = 0, cy = 0, tx = 0, ty = 0;
-    document.addEventListener('mousemove', e => { tx = e.clientX; ty = e.clientY; });
-    (function animate() {
-      cx += (tx - cx) * 0.18;
-      cy += (ty - cy) * 0.18;
-      cursorDot.style.left = cx + 'px';
-      cursorDot.style.top  = cy + 'px';
-      requestAnimationFrame(animate);
-    })();
-    document.querySelectorAll('a, button, [role="button"]').forEach(el => {
-      el.addEventListener('mouseenter', () => cursorDot.classList.add('hovering'));
-      el.addEventListener('mouseleave', () => cursorDot.classList.remove('hovering'));
-    });
-    const editorialSection = document.querySelector('.editorial');
-    if (editorialSection) {
-      editorialSection.addEventListener('mouseenter', () => cursorDot.style.opacity = '0');
-      editorialSection.addEventListener('mouseleave', () => cursorDot.style.opacity = '');
-    }
-    const contactSection = document.querySelector('.contact');
-    if (contactSection) {
-      contactSection.addEventListener('mouseenter', () => cursorDot.style.opacity = '0');
-      contactSection.addEventListener('mouseleave', () => cursorDot.style.opacity = '');
-    }
-    const brandsSection = document.querySelector('.brands');
-    if (brandsSection) {
-      brandsSection.addEventListener('mouseenter', () => cursorDot.style.opacity = '0');
-      brandsSection.addEventListener('mouseleave', () => cursorDot.style.opacity = '');
-    }
-  }
 
   /* ── nav arrow micro-interaction ── */
   document.querySelectorAll('.header-col a').forEach(a => {
