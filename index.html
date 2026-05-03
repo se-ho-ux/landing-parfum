@@ -1194,7 +1194,7 @@
     /* ─────────────────────────────────────────
        CONTACT
     ───────────────────────────────────────── */
-    .contact { background: var(--warm); }
+    .contact { background: transparent; }
 
     .contact-grid {
       display: grid;
@@ -1757,9 +1757,12 @@
 <section class="contact" id="contact">
   <div class="inner">
     <div class="contact-grid">
-      <div class="contact-visual photo-placeholder reveal" data-label="Visuel contact — atelier, flacons, lumière tamisée"></div>
+      <div class="contact-visual reveal">
+        <video autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;display:block;">
+          <source src="videos/Main-1.mp4" type="video/mp4">
+        </video>
+      </div>
       <div class="contact-body">
-        <span class="eyebrow reveal">Contact</span>
         <h2 class="contact-title reveal r1">
           Prenons le temps<br>d'une première
           <em>conversation.</em>
