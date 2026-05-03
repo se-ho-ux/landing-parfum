@@ -1878,6 +1878,11 @@
       editorialSection.addEventListener('mouseenter', () => cursorDot.style.opacity = '0');
       editorialSection.addEventListener('mouseleave', () => cursorDot.style.opacity = '');
     }
+    const contactSection = document.querySelector('.contact');
+    if (contactSection) {
+      contactSection.addEventListener('mouseenter', () => cursorDot.style.opacity = '0');
+      contactSection.addEventListener('mouseleave', () => cursorDot.style.opacity = '');
+    }
   }
 
   /* ── nav arrow micro-interaction ── */
