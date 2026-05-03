@@ -784,8 +784,8 @@
     .svc-preview {
       display: flex;
       flex-direction: column;
-      align-items: flex-end;
-      padding: 3rem 0;
+      align-items: flex-start;
+      padding: 3rem 3rem 3rem 0;
       opacity: 0;
       transform: translateY(10px);
       transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1),
@@ -801,16 +801,16 @@
       font-family: 'Plus Jakarta Sans', var(--sans);
       font-size: 0.8rem;
       font-weight: 400;
-      font-style: italic;
+      font-style: normal;
       color: #000;
       margin-bottom: 1rem;
       letter-spacing: 0.02em;
-      text-align: right;
+      text-align: left;
     }
 
     .svc-preview-img {
       width: 100%;
-      max-width: 380px;
+      max-width: 340px;
       aspect-ratio: 3 / 4;
       object-fit: cover;
       display: block;
@@ -1587,11 +1587,11 @@
 <section class="services" id="services">
   <div class="svc-layout">
     <div class="svc-list reveal">
-      <span class="svc-word" data-img="images/boutique_1.jpg" data-quote="« Un sourire précède l'effluve. »">Accueil</span>
-      <span class="svc-word" data-img="images/parfums-solide.jpeg" data-quote="« Écouter est un art rare »">Besoin</span>
-      <span class="svc-word" data-img="images/perfumes-stacked.jpeg" data-quote="« Chaque pas est une promesse. »">Conseil</span>
-      <span class="svc-word" data-img="images/vintage-label.jpeg" data-quote="« Une création porte une histoire »">Récit</span>
-      <span class="svc-word" data-img="images/packaging-perfume%20-.jpeg" data-quote="« Le souvenir devient signature »">Fidélisation</span>
+      <span class="svc-word" data-img="images/boutique_1.jpg" data-quote="Un sourire précède l'effluve.">Accueil</span>
+      <span class="svc-word" data-img="images/parfums-solide.jpeg" data-quote="Écouter est un art rare">Besoin</span>
+      <span class="svc-word" data-img="images/perfumes-stacked.jpeg" data-quote="Chaque pas est une promesse.">Conseil</span>
+      <span class="svc-word" data-img="images/vintage-label.jpeg" data-quote="Une création porte une histoire">Récit</span>
+      <span class="svc-word" data-img="images/packaging-perfume%20-.jpeg" data-quote="Le souvenir devient signature">Fidélisation</span>
     </div>
     <div class="svc-preview" id="svc-preview" aria-hidden="true">
       <p class="svc-preview-quote" id="svc-preview-quote"></p>
