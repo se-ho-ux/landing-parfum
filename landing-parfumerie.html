@@ -823,6 +823,16 @@
     ───────────────────────────────────────── */
     .editorial { background: transparent; padding: 0; }
 
+    .editorial-title {
+      font-family: 'Plus Jakarta Sans', var(--sans);
+      font-size: 50px;
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--title);
+      margin-bottom: 2rem;
+    }
+
     .editorial-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -1608,7 +1618,7 @@
     <div class="editorial-img photo-placeholder" data-label="Visuel olfactif — atelier, essences, lumière"></div>
     <div class="editorial-body">
       <span class="eyebrow reveal">La philosophie</span>
-      <h2 class="section-title reveal r1">La conseillère : ambassadrice<br>et gardienne d'un récit</h2>
+      <h2 class="editorial-title reveal r1">La conseillère : ambassadrice<br>et gardienne d'un récit</h2>
       <p class="reveal r2">
         Incarner une Maison comme Diptyque, Serge Lutens ou Fueguia 1833, c'est en porter l'histoire, la géographie et l'âme, bien au-delà de la simple pyramide olfactive.
       </p>
@@ -1844,6 +1854,11 @@
       el.addEventListener('mouseenter', () => cursorDot.classList.add('hovering'));
       el.addEventListener('mouseleave', () => cursorDot.classList.remove('hovering'));
     });
+    const editorialSection = document.querySelector('.editorial');
+    if (editorialSection) {
+      editorialSection.addEventListener('mouseenter', () => cursorDot.style.opacity = '0');
+      editorialSection.addEventListener('mouseleave', () => cursorDot.style.opacity = '');
+    }
   }
 
   /* ── nav arrow micro-interaction ── */
