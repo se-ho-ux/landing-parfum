@@ -1194,17 +1194,19 @@
     /* ─────────────────────────────────────────
        CONTACT
     ───────────────────────────────────────── */
-    .contact { background: transparent; }
+    .contact { background: transparent; padding: 4rem 0 4rem 0; }
+    .contact > .inner { padding-left: 0; max-width: 100%; }
 
     .contact-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 9rem;
+      grid-template-columns: 38% 1fr;
+      gap: 6rem;
       align-items: center;
     }
 
     .contact-visual {
-      aspect-ratio: 4/5;
+      aspect-ratio: 3/4;
+      overflow: hidden;
     }
 
     .contact-title {
