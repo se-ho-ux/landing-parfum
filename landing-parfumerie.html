@@ -643,41 +643,29 @@
     ───────────────────────────────────────── */
     .stakes { background: var(--warm); }
 
-    .stakes-head {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8rem;
-      align-items: end;
-      margin-bottom: 6rem;
-      padding-bottom: 5rem;
-      border-bottom: 1px solid var(--line);
+    .stakes-editorial {
+      max-width: 860px;
+      margin: 0 auto;
+      text-align: center;
     }
 
-    .stakes-sub {
-      font-size: 0.92rem;
-      line-height: 1.95;
-      color: var(--muted);
-      align-self: end;
-    }
-
-    .stakes-grid { display: grid; grid-template-columns: 1fr 1fr; }
-
-    .stake {
-      padding: 3.5rem;
-      border-right: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-      transition: background 0.3s;
-    }
-    .stake:nth-child(2n) { border-right: none; }
-    .stake:nth-child(3), .stake:nth-child(4) { border-bottom: none; }
-    .stake:hover { background: var(--cream); }
-
-    .stake-n {
-      font-size: 0.58rem;
-      letter-spacing: 0.22em;
-      color: var(--muted);
-      display: block;
+    .stakes-editorial-title {
+      font-family: var(--serif);
+      font-size: clamp(2.2rem, 4vw, 3.8rem);
+      font-weight: 400;
+      letter-spacing: -0.015em;
+      color: var(--title);
       margin-bottom: 2.5rem;
+      line-height: 1.1;
+    }
+
+    .stakes-editorial-text {
+      font-family: var(--serif);
+      font-size: clamp(1rem, 1.5vw, 1.2rem);
+      font-weight: 400;
+      font-style: italic;
+      line-height: 2;
+      color: var(--body);
     }
 
     .stake h3 {
@@ -1476,36 +1464,9 @@
 <!-- STAKES -->
 <section class="stakes" id="stakes">
   <div class="inner">
-    <div class="stakes-head">
-      <div>
-        <span class="eyebrow reveal">Les enjeux</span>
-        <h2 class="section-title reveal r1">Ce qui se perd<br>quand le service<br>n'est pas à la hauteur</h2>
-      </div>
-      <p class="stakes-sub reveal r2">
-        Dans un univers où le flacon seul peut dépasser 300 €, chaque échange est un acte de confiance. Une maladresse de service peut coûter un client fidèle pour toujours.
-      </p>
-    </div>
-    <div class="stakes-grid">
-      <div class="stake reveal">
-        <span class="stake-n">01</span>
-        <h3>La confiance s'effrite</h3>
-        <p>Un client mal accompagné ne revient pas. Dans la niche, la fidélité est le seul modèle économique durable.</p>
-      </div>
-      <div class="stake reveal r1">
-        <span class="stake-n">02</span>
-        <h3>Le récit s'interrompt</h3>
-        <p>Une maison se distingue par son histoire. Un service approximatif rompt ce fil précieux entre la création et le client.</p>
-      </div>
-      <div class="stake reveal r2">
-        <span class="stake-n">03</span>
-        <h3>Le bouche-à-oreille se retourne</h3>
-        <p>La clientèle de niche est communautaire. Une expérience décevante se propage aussi vite qu'une belle recommandation.</p>
-      </div>
-      <div class="stake reveal r3">
-        <span class="stake-n">04</span>
-        <h3>La valeur perçue s'effondre</h3>
-        <p>Difficile de justifier un prix premium si l'expérience d'achat ne correspond pas à la promesse du flacon.</p>
-      </div>
+    <div class="stakes-editorial reveal">
+      <h2 class="stakes-editorial-title reveal r1">Le Sillage de l'Excellence</h2>
+      <p class="stakes-editorial-text reveal r2">Dans un univers où le flacon est une œuvre d'art, le service doit en être l'écrin. Chaque échange est une promesse, un acte de confiance absolue. Car si la fragrance séduit, c'est l'élégance de l'accueil qui fidélise. Offrir une expérience à la hauteur de vos créations, c'est s'assurer que l'émotion du premier instant devienne un attachement éternel.</p>
     </div>
   </div>
 </section>
