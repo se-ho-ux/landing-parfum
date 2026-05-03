@@ -1859,23 +1859,51 @@
   const svcPreviewQuote = document.getElementById('svc-preview-quote');
 
   if (svcPreview) {
+    const svcWords = document.querySelectorAll('.svc-word');
+    const firstWord = svcWords[0];
+
     const preloaded = {};
-    document.querySelectorAll('.svc-word').forEach(word => {
+    svcWords.forEach(word => {
       const src = word.dataset.img;
       if (src && !preloaded[src]) {
         const img = new Image();
         img.src = src;
         preloaded[src] = img;
       }
-      word.addEventListener('mouseenter', () => {
-        svcPreviewImg.src = word.dataset.img;
-        svcPreviewQuote.textContent = word.dataset.quote;
-        svcPreview.classList.add('visible');
-      });
-      word.addEventListener('mouseleave', () => {
-        svcPreview.classList.remove('visible');
-      });
     });
+
+    function activateWord(word) {
+      svcWords.forEach(w => w.style.color = '');
+      word.style.color = '#000';
+      svcPreviewImg.src = word.dataset.img;
+      svcPreviewQuote.textContent = word.dataset.quote;
+      svcPreview.classList.add('visible');
+    }
+
+    function resetToDefault() {
+      activateWord(firstWord);
+    }
+
+    svcWords.forEach(word => {
+      word.addEventListener('mouseenter', () => activateWord(word));
+    });
+
+    const svcList = document.querySelector('.svc-list');
+    if (svcList) {
+      svcList.addEventListener('mouseleave', resetToDefault);
+    }
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          resetToDefault();
+          observer.disconnect();
+        }
+      });
+    }, { threshold: 0.3 });
+
+    const svcSection = document.getElementById('services');
+    if (svcSection) observer.observe(svcSection);
   }
 </script>
 
