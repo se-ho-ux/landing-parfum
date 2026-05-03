@@ -665,14 +665,16 @@
     }
 
     .stakes-img-wrap {
-      padding: 2rem 2rem 2rem 0;
+      padding: 2.5rem 2.5rem 2.5rem 0;
       display: flex;
-      align-items: stretch;
+      align-items: center;
+      justify-content: center;
     }
 
     .stakes-bg {
       width: 100%;
-      height: clamp(340px, 55vh, 600px);
+      max-height: 420px;
+      aspect-ratio: 4 / 3;
       object-fit: cover;
       object-position: center 40%;
       display: block;
@@ -1489,8 +1491,6 @@
     </div>
   </div>
 </section>
-
-<hr class="rule">
 
 <!-- STAKES -->
 <section class="stakes" id="stakes">
