@@ -1143,51 +1143,86 @@
     /* ─────────────────────────────────────────
        BRANDS
     ───────────────────────────────────────── */
-    .brands { background: var(--cream); }
+    .brands { background: var(--cream); padding-top: 4rem; padding-bottom: 4rem; }
 
     .brands-head {
-      margin-bottom: 1.2rem;
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 1.5rem;
+    }
+
+    .brands-count {
+      font-family: var(--sans);
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
     }
 
     .brands-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      border: 1px solid var(--line);
     }
 
     .brand-item {
-      padding: 1.2rem 2rem;
-      text-align: center;
+      padding: 1.8rem 1.5rem;
       border-right: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
       position: relative;
       overflow: hidden;
       cursor: default;
-      transition: background 0.3s;
+      transition: background 0.4s cubic-bezier(0.16,1,0.3,1);
     }
     .brand-item:nth-child(4n) { border-right: none; }
     .brand-item:nth-last-child(-n+4) { border-bottom: none; }
-    .brand-item:hover { background: var(--white); }
+    .brand-item:hover { background: rgba(255,255,255,0.7); }
+
+    .brand-item::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 0; height: 1px;
+      background: var(--title);
+      transition: width 0.4s cubic-bezier(0.16,1,0.3,1);
+    }
+    .brand-item:hover::after { width: 100%; }
+
+    .brand-num {
+      font-family: var(--sans);
+      font-size: 0.5rem;
+      letter-spacing: 0.15em;
+      color: rgba(0,0,0,0.2);
+      display: block;
+      margin-bottom: 0.8rem;
+      opacity: 0;
+      transform: translateY(4px);
+      transition: opacity 0.3s, transform 0.3s;
+    }
+    .brand-item:hover .brand-num { opacity: 1; transform: translateY(0); }
 
     .brand-name {
-      font-size: 0.78rem;
+      font-family: var(--serif);
+      font-size: 1rem;
       font-weight: 400;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: rgba(0,0,0,0.35);
+      letter-spacing: -0.01em;
+      color: rgba(0,0,0,0.4);
       display: block;
-      transition: color 0.25s;
+      transition: color 0.3s;
     }
     .brand-item:hover .brand-name { color: var(--title); }
 
     .brand-sub {
-      font-size: 0.54rem;
-      letter-spacing: 0.14em;
+      font-family: var(--sans);
+      font-size: 0.5rem;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
       color: rgba(0,0,0,0.2);
       display: block;
-      margin-top: 0.35rem;
-      transition: color 0.25s;
+      margin-top: 0.5rem;
+      transition: color 0.3s;
     }
     .brand-item:hover .brand-sub { color: var(--muted); }
 
@@ -1207,63 +1242,68 @@
     .contact-visual {
       aspect-ratio: 3/4;
       overflow: hidden;
+      position: relative;
     }
+    .contact-visual video {
+      transition: transform 0.8s cubic-bezier(0.16,1,0.3,1);
+    }
+    .contact-visual:hover video { transform: scale(1.03); }
+
+    .contact-body { padding-right: 6rem; }
 
     .contact-title {
       font-family: var(--serif);
-      font-size: clamp(2.5rem, 4vw, 4rem);
+      font-size: clamp(2.2rem, 3.5vw, 3.5rem);
       font-weight: 400;
-      line-height: 1.05;
+      line-height: 1.08;
       letter-spacing: -0.02em;
       color: var(--title);
-      margin-bottom: 2rem;
+      margin-bottom: 1.8rem;
     }
     .contact-title em { font-style: italic; display: block; }
 
     .contact-sub {
-      font-family: var(--serif);
-      font-size: 0.9rem;
+      font-family: var(--sans);
+      font-size: 0.82rem;
       font-weight: 400;
-      font-style: italic;
       color: var(--muted);
-      line-height: 1.9;
-      margin-bottom: 3.5rem;
-      padding-left: 1.5rem;
-      border-left: 1px solid var(--line);
+      line-height: 1.8;
+      margin-bottom: 2.5rem;
+      letter-spacing: 0.01em;
     }
 
-    .contact-actions { display: flex; gap: 1rem; margin-bottom: 4.5rem; flex-wrap: wrap; }
+    .contact-actions { display: flex; gap: 1rem; margin-bottom: 2.5rem; flex-wrap: wrap; }
 
     .btn-dark {
-      background: transparent;
-      color: var(--title);
-      padding: 0.85rem 2.25rem;
+      background: var(--title);
+      color: #fff;
+      padding: 1rem 2.5rem;
       border: 1px solid var(--title);
       font-family: var(--sans);
-      font-size: 0.62rem;
-      font-weight: 500;
+      font-size: 0.6rem;
+      font-weight: 600;
       letter-spacing: 0.22em;
       text-transform: uppercase;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
-      gap: 0.7rem;
-      transition: background 0.25s, color 0.25s;
+      gap: 0.8rem;
+      transition: background 0.35s cubic-bezier(0.16,1,0.3,1), color 0.35s;
       cursor: pointer;
       position: relative;
       overflow: hidden;
     }
-    .btn-dark:hover { background: var(--cream); color: var(--title); }
-    .btn-dark .arrow { transition: transform 0.25s; }
-    .btn-dark:hover .arrow { transform: translateX(4px); }
+    .btn-dark:hover { background: transparent; color: var(--title); }
+    .btn-dark .arrow { transition: transform 0.3s cubic-bezier(0.16,1,0.3,1); }
+    .btn-dark:hover .arrow { transform: translateX(5px); }
 
     .btn-light {
       background: transparent;
       color: var(--body);
-      padding: 0.85rem 2.25rem;
+      padding: 1rem 2.5rem;
       border: 1px solid var(--line);
       font-family: var(--sans);
-      font-size: 0.62rem;
+      font-size: 0.6rem;
       font-weight: 400;
       letter-spacing: 0.22em;
       text-transform: uppercase;
@@ -1273,60 +1313,71 @@
     .btn-light:hover { border-color: var(--body); color: var(--title); }
 
     .contact-divider {
-      width: 40px;
+      width: 32px;
       height: 1px;
       background: var(--line);
-      margin-bottom: 2.5rem;
+      margin-bottom: 2rem;
     }
 
-    .contact-links { display: flex; flex-direction: column; gap: 0.85rem; }
+    .contact-links { display: flex; flex-direction: column; gap: 0.6rem; }
 
     .contact-links a {
-      font-size: 0.72rem;
-      letter-spacing: 0.1em;
+      font-family: var(--sans);
+      font-size: 0.7rem;
+      letter-spacing: 0.06em;
       color: var(--muted);
       text-decoration: none;
       transition: color 0.25s;
+      position: relative;
+      display: inline-block;
+    }
+    .contact-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -1px; left: 0;
+      width: 0; height: 1px;
+      background: var(--title);
+      transition: width 0.3s cubic-bezier(0.16,1,0.3,1);
     }
     .contact-links a:hover { color: var(--title); }
+    .contact-links a:hover::after { width: 100%; }
 
     /* ─────────────────────────────────────────
        FOOTER
     ───────────────────────────────────────── */
     footer {
-      background: var(--warm);
-      color: var(--muted);
-      padding: 2.5rem 5rem;
+      background: var(--title);
+      color: rgba(255,255,255,0.45);
+      padding: 2rem 5rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-top: 1px solid var(--line);
     }
 
     .footer-logo {
-      font-size: 0.62rem;
-      font-weight: 500;
-      letter-spacing: 0.24em;
-      text-transform: uppercase;
-      color: var(--title);
+      font-family: var(--serif);
+      font-size: 0.85rem;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      color: rgba(255,255,255,0.85);
     }
 
     .footer-copy {
-      font-size: 0.6rem;
-      letter-spacing: 0.08em;
-      color: var(--muted);
+      font-size: 0.55rem;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.35);
     }
 
-    .footer-links { display: flex; gap: 2.25rem; }
+    .footer-links { display: flex; gap: 2rem; }
     .footer-links a {
-      font-size: 0.6rem;
-      letter-spacing: 0.16em;
+      font-size: 0.55rem;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--muted);
+      color: rgba(255,255,255,0.4);
       text-decoration: none;
       transition: color 0.25s;
     }
-    .footer-links a:hover { color: var(--title); }
+    .footer-links a:hover { color: rgba(255,255,255,0.9); }
 
     /* ─────────────────────────────────────────
        ANIMATIONS & REVEAL
@@ -1717,37 +1768,46 @@
   <div class="inner">
     <div class="brands-head">
       <h2 class="section-title reveal r1">Maisons &amp; Univers de <em>prédilection</em></h2>
+      <span class="brands-count reveal">08 Maisons</span>
     </div>
     <div class="brands-grid">
       <div class="brand-item reveal">
+        <span class="brand-num">01</span>
         <span class="brand-name">Diptyque</span>
         <span class="brand-sub">Paris · 1961</span>
       </div>
       <div class="brand-item reveal r1">
+        <span class="brand-num">02</span>
         <span class="brand-name">Serge Lutens</span>
         <span class="brand-sub">Parfumeur · Paris</span>
       </div>
       <div class="brand-item reveal r2">
+        <span class="brand-num">03</span>
         <span class="brand-name">Le Labo</span>
         <span class="brand-sub">New York · Paris</span>
       </div>
       <div class="brand-item reveal r3">
+        <span class="brand-num">04</span>
         <span class="brand-name">Byredo</span>
         <span class="brand-sub">Stockholm · 2006</span>
       </div>
       <div class="brand-item reveal">
+        <span class="brand-num">05</span>
         <span class="brand-name">Maison Margiela</span>
         <span class="brand-sub">Replica · Fragrances</span>
       </div>
       <div class="brand-item reveal r1">
+        <span class="brand-num">06</span>
         <span class="brand-name">Acqua di Parma</span>
         <span class="brand-sub">Parma · 1916</span>
       </div>
       <div class="brand-item reveal r2">
+        <span class="brand-num">07</span>
         <span class="brand-name">Matière Première</span>
         <span class="brand-sub">Paris · 2019</span>
       </div>
       <div class="brand-item reveal r3">
+        <span class="brand-num">08</span>
         <span class="brand-name">Frédéric Malle</span>
         <span class="brand-sub">Éditions de Parfums · 2000</span>
       </div>
