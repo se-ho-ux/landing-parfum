@@ -1930,8 +1930,9 @@
       svcPreview.classList.add('visible');
     }
 
-    function resetToDefault() {
-      activateWord(firstWord);
+    function clearAll() {
+      svcWords.forEach(w => w.style.color = '');
+      svcPreview.classList.remove('visible');
     }
 
     svcWords.forEach(word => {
@@ -1940,20 +1941,8 @@
 
     const svcList = document.querySelector('.svc-list');
     if (svcList) {
-      svcList.addEventListener('mouseleave', resetToDefault);
+      svcList.addEventListener('mouseleave', clearAll);
     }
-
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          resetToDefault();
-          observer.disconnect();
-        }
-      });
-    }, { threshold: 0.3 });
-
-    const svcSection = document.getElementById('services');
-    if (svcSection) observer.observe(svcSection);
   }
 </script>
 
