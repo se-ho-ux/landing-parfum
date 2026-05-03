@@ -751,22 +751,68 @@
       align-self: end;
     }
 
-    .services { padding-left: 0; padding-right: 0; }
+    .services { padding: 0; }
+
+    .svc-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 60vh;
+      align-items: center;
+    }
 
     .svc-list {
       display: flex;
       flex-direction: column;
-      gap: 0.6rem;
-      padding: 4rem 0;
+      gap: 0.5rem;
+      padding: 5rem 0;
     }
 
     .svc-word {
       font-family: 'Plus Jakarta Sans', var(--sans);
       font-size: 50px;
       font-weight: 700;
-      color: var(--title);
+      color: #DEDECF;
       line-height: 1;
       letter-spacing: -0.02em;
+      display: block;
+      cursor: default;
+      transition: color 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      user-select: none;
+    }
+    .svc-word:hover { color: #000; }
+
+    .svc-preview {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      padding: 3rem 0;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+      pointer-events: none;
+    }
+    .svc-preview.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .svc-preview-quote {
+      font-family: 'Plus Jakarta Sans', var(--sans);
+      font-size: 0.8rem;
+      font-weight: 400;
+      font-style: italic;
+      color: #000;
+      margin-bottom: 1rem;
+      letter-spacing: 0.02em;
+      text-align: right;
+    }
+
+    .svc-preview-img {
+      width: 100%;
+      max-width: 380px;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
       display: block;
     }
 
@@ -1309,6 +1355,8 @@
       .stakes-editorial-title { white-space: normal; }
 
       /* services */
+      .svc-layout { grid-template-columns: 1fr; }
+      .svc-preview { display: none; }
       .svc-list { padding: 2rem 0; }
       .svc-word { font-size: 36px; }
       .services-banner-img { height: 220px; }
@@ -1537,13 +1585,18 @@
 
 <!-- SERVICES -->
 <section class="services" id="services">
-  <div class="svc-list reveal">
-    <span class="svc-word">Accueil</span>
-    <span class="svc-word">Besoin</span>
-    <span class="svc-word">Conseil</span>
-    <span class="svc-word">Immersion</span>
-    <span class="svc-word">Récit</span>
-    <span class="svc-word">Fidélisation</span>
+  <div class="svc-layout">
+    <div class="svc-list reveal">
+      <span class="svc-word" data-img="images/boutique_1.jpg" data-quote="« Un sourire précède l'effluve. »">Accueil</span>
+      <span class="svc-word" data-img="images/parfums-solide.jpeg" data-quote="« Écouter est un art rare »">Besoin</span>
+      <span class="svc-word" data-img="images/perfumes-stacked.jpeg" data-quote="« Chaque pas est une promesse. »">Conseil</span>
+      <span class="svc-word" data-img="images/vintage-label.jpeg" data-quote="« Une création porte une histoire »">Récit</span>
+      <span class="svc-word" data-img="images/packaging-perfume -.jpeg" data-quote="« Le souvenir devient signature »">Fidélisation</span>
+    </div>
+    <div class="svc-preview" id="svc-preview" aria-hidden="true">
+      <p class="svc-preview-quote" id="svc-preview-quote"></p>
+      <img class="svc-preview-img" id="svc-preview-img" src="" alt="">
+    </div>
   </div>
 </section>
 
@@ -1799,6 +1852,32 @@
       if (arrow) { arrow.style.transition = 'transform 0.4s cubic-bezier(0.16,1,0.3,1), opacity 0.2s'; }
     });
   });
+
+  /* ── services word hover preview ── */
+  const svcPreview     = document.getElementById('svc-preview');
+  const svcPreviewImg  = document.getElementById('svc-preview-img');
+  const svcPreviewQuote = document.getElementById('svc-preview-quote');
+
+  if (svcPreview) {
+    let preloadedSrc = '';
+    document.querySelectorAll('.svc-word').forEach(word => {
+      // preload images on page load
+      const img = new Image();
+      img.src = word.dataset.img;
+
+      word.addEventListener('mouseenter', () => {
+        const src = word.dataset.img;
+        if (svcPreviewImg.getAttribute('src') !== src) {
+          svcPreviewImg.setAttribute('src', src);
+        }
+        svcPreviewQuote.textContent = word.dataset.quote;
+        svcPreview.classList.add('visible');
+      });
+      word.addEventListener('mouseleave', () => {
+        svcPreview.classList.remove('visible');
+      });
+    });
+  }
 </script>
 
 </body>
