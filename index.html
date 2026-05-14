@@ -4,6 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- Désindexation et redirection du sous-domaine www -->
+  <script>
+    if (location.hostname === 'www.lartduserviceparis.fr') {
+      var meta = document.createElement('meta');
+      meta.name = 'robots';
+      meta.content = 'noindex,follow';
+      document.head.appendChild(meta);
+      location.replace(location.href.replace('//www.', '//'));
+    }
+  </script>
+
   <!-- Sécurité -->
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta http-equiv="X-Frame-Options" content="DENY">
